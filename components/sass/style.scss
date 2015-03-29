@@ -1,0 +1,18 @@
+// style.scss
+// ==============
+ 
+//Compass imports
+@import "compass";
+@import "compass/layout/stretching";
+@import "compass/utilities";
+@import "compass/css3";
+ 
+//Core partials
+@import "normalize";
+@import "boilerplate";
+@import "variables";
+@import "mixins";
+@import "base";
+@import "modules";
+@import "mediaqueries"
+ 
