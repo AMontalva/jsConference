@@ -71,10 +71,35 @@
             </div>
             <div id="speakers" class="wrap">
                 <h1>Speakers</h1>
-
-
+                    <script id="speakerstpl" type="text/template">
+                        {{#speakers}}
+                        <ul>
+                            <li>
+                                <h2>{{name}}</h2>
+                                <h3>{{reknown}}</h3>
+                                <p><img src="img/{{shortname}}_tn.jpg" alt="Photo of {{name}}" />{{bio}}</p>
+                            </li>
+                        </ul>
+                        {{/speakers}}
+                    </script>
             </div>
-            <div id="program"></div>
+            <div id="program" class="wrap">
+                <h1>Program</h1>
+                <div id="day1">
+                    <script id="programtpl" type="text/template">
+                        {{#day1}}
+                        <table>
+                            <tr>
+                                <td>{{time}}</td>
+                                <td>{{title}}</td>
+                                <td>{{speaker}}</td>
+                                <td>{{description}}</td>
+                            </tr>
+                        </table>
+                        {{/day1}}
+                    </script>
+                </div>
+            </div>
             <div id="sponsors"></div>
             <div id="register"></div>
             <div id="footer"></div>  

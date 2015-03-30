@@ -10,6 +10,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat');
 
 var jsSources = [
+  'components/js/template.js',
   'components/js/googleanalytics.js'
 ];
 var sassSources = ['components/sass/style.scss'];

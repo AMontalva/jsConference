@@ -667,11 +667,6 @@ a {
 }
 
 /*
-===================GENERAL===================
-===================GENERAL===================
-===================GENERAL===================
-*/
-/*
 ===================HEADER===================
 ===================HEADER===================
 ===================HEADER===================
@@ -758,4 +753,35 @@ a {
 
 #speakers {
   clear: both;
+}
+#speakers ul {
+  list-style: none;
+}
+#speakers ul li {
+  width: 20%;
+  height: 400px;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+  float: left;
+  font-size: .8em;
+  text-align: center;
+}
+#speakers ul li img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#program table {
+  table-layout: fixed;
+  width: 100%;
+}
+#program td {
+  padding: 10px;
+}
+#program table, #program th, #program td {
+  border: 1px solid black;
 }

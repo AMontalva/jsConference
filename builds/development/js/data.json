@@ -1,0 +1,51 @@
+{ "speakers" : [
+  { 
+    "name":"Barot Bellingham",
+    "shortname":"Barot_Bellingham",
+    "reknown":"Lorem ipsum dolor",
+    "bio":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore sit!"
+  },
+  {
+    "name":"Jonathan G. Ferrar II",
+    "shortname":"Jonathan_Ferrar",
+    "reknown":"Lorem ipsum dolor",
+    "bio":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore sit!"
+  },
+  {
+    "name":"Hillary H. Goldwynn",
+    "shortname":"Hillary_Goldwynn",
+    "reknown":"Lorem ipsum dolor",
+    "bio":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore sit!"
+  },
+  {
+    "name":"Hassum Harrod",
+    "shortname":"Hassum_Harrod",
+    "reknown":"Lorem ipsum dolor",
+    "bio":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore sit!"
+  },
+  {
+    "name":"Jennifer Jerome",
+    "shortname":"Jennifer_Jerome",
+    "reknown":"Lorem ipsum dolor",
+    "bio":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore sit!"
+  },
+  {
+    "name":"LaVonne L. LaRue",
+    "shortname":"LaVonne_LaRue",
+    "reknown":"Lorem ipsum dolor",
+    "bio":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore sit!"
+  },
+  {
+    "name":"Constance Olivia Smith",
+    "shortname":"Constance_Smith",
+    "reknown":"Lorem ipsum dolor",
+    "bio":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore sit!"
+  },
+  {
+    "name":"Xhou Ta",
+    "shortname":"Xhou_Ta",
+    "reknown":"Lorem ipsum dolor",
+    "bio":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore sit!"
+  }
+]}
+
