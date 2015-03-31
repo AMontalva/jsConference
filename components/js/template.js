@@ -21,3 +21,13 @@ $(function() {
   }); //getJSON
   
 }); //function
+
+$(function() {
+ 
+  $.getJSON('js/sponsors.json', function(data) {	// jquery to get json, put into data object
+    var template = $('#sponsorstpl').html();	// get template in index.html
+    var html = Mustache.to_html(template, data);	// load data into template, creates html
+    $('#sponsor_images').html(html);    // feed html into speakers id
+  }); //getJSON
+  
+}); //function

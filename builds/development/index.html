@@ -100,7 +100,20 @@
                     </script>
                 </div>
             </div>
-            <div id="sponsors"></div>
+            <div id="sponsors" class="wrap">
+                <h1>Sponsors</h1>
+                <div id="sponsor_images">
+                    <script id="sponsorstpl" type="text/template">
+                        {{#sponsor_images}}
+                        <ul>
+                            <li>
+                                <img src="img/{{shortname}}.jpg" alt="Photo of {{shortname}}" />
+                            </li>
+                        </ul>
+                        {{/sponsor_images}}
+                    </script>
+                </div>
+            </div>
             <div id="register"></div>
             <div id="footer"></div>  
         </div>

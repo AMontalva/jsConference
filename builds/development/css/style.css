@@ -785,3 +785,23 @@ a {
 #program table, #program th, #program td {
   border: 1px solid black;
 }
+
+#sponsors ul {
+  list-style: none;
+}
+#sponsors ul li {
+  width: 16%;
+  height: 200px;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+  float: left;
+  text-align: center;
+}
+#sponsors ul li img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

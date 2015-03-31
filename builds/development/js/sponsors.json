@@ -1,0 +1,32 @@
+{ "sponsor_images" : [
+  { 
+    "shortname":"ibm"
+  },
+  { 
+    "shortname":"ifwe"
+  },
+  { 
+    "shortname":"mandrill_ko"
+  },
+  { 
+    "shortname":"matrix"
+  },
+  {
+    "shortname":"newrelic"
+  },
+  {
+    "shortname":"paypal-1"
+  },
+  {
+    "shortname":"SAP"
+  },
+  {
+    "shortname":"saucelabs"
+  },
+  {
+    "shortname":"softlayer-ibm"
+  },
+  {
+    "shortname":"splunk-1"
+  }
+]}
