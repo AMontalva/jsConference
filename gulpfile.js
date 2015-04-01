@@ -11,7 +11,8 @@ var gulp = require('gulp'),
 
 var jsSources = [
   'components/js/template.js',
-  'components/js/googleanalytics.js'
+  'components/js/jquery.scrollmagic.min.js',
+  'components/js/script.js'
 ];
 var sassSources = ['components/sass/style.scss'];
 var htmlSources = ['builds/development/*.html'];

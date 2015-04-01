@@ -1,3 +1,59 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
 /*! normalize.css v1.1.3 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
@@ -672,15 +728,21 @@ a {
 ===================HEADER===================
 */
 #header {
+  width: 100%;
+}
+
+#nav {
+  width: 100%;
   background-color: #FFFFFF;
   height: 50px;
   padding-top: 1px;
   padding-bottom: 10px;
-}
-#header nav {
   text-align: center;
+  z-index: 9999;
+  clear: both;
+  float: left;
 }
-#header nav ul li a {
+#nav ul li a {
   color: #323330;
   font-size: 18px;
   margin-left: 4px;
@@ -692,36 +754,27 @@ a {
 ===================HOME===================
 ===================HOME===================
 */
-#home {
-  /*width: 100%; */
+.fullheight {
+  background: url("../earth.jpg");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-#home__desc {
-  display: block;
-  position: absolute;
-  width: 100%;
-  top: 20%;
-  left: 0;
+.home__desc {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  padding: 200px 0;
   text-align: center;
   color: #FFFFFF;
 }
-#home__desc h1 {
-  font-size: 48px;
-  margin-bottom: 0;
-}
-#home__desc h2 {
-  font-size: 30px;
-  margin: 0;
-}
-#home__desc h3 {
-  font-size: 24px;
-  margin: 0;
-}
-#home__desc h4 {
-  font-size: 22px;
-  margin-top: 0;
-}
-#home__desc .btn {
+.home__desc .btn {
   -webkit-border-radius: 6;
   -moz-border-radius: 6;
   border-radius: 6px;
@@ -733,15 +786,9 @@ a {
   border: solid #ffffff 4px;
   text-decoration: none;
 }
-#home__desc .btn:hover {
+.home__desc .btn:hover {
   background: #3cb0fd;
   text-decoration: none;
-}
-
-#home__img {
-  background-image: url("img/earth.jpg");
-  width: 100%;
-  height: 600px;
 }
 
 #about ul li {
