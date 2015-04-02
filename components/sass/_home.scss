@@ -24,28 +24,11 @@
   text-align: center;
   color: $white; 
 
-  .btn {
-    -webkit-border-radius: 6;
-    -moz-border-radius: 6;
-    border-radius: 6px;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 20px;
-    background: #3498db;
-    padding: 10px 20px 10px 20px;
-    border: solid #ffffff 4px;
-    text-decoration: none;
-  }
-
-  .btn:hover {
-    background: #3cb0fd;
-    text-decoration: none;
-  }
 }
 
 @media(max-width: 320px) {
   .home__desc {
-    padding: 50px 0;
+    padding: 20px 0;
   }
 }
 

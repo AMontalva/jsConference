@@ -4,3 +4,13 @@
 ===================REGISTER===================
 ===================REGISTER===================
 */
+
+@media(max-width: 320px) {
+	input[type="text"] {
+		margin-bottom: 20px;
+	}
+
+	.btn {
+		margin-top: 20px;
+	}
+}
