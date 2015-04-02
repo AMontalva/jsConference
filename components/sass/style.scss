@@ -16,6 +16,13 @@
 @import "variables";
 @import "mixins";
 @import "base";
-@import "modules";
 @import "mediaqueries";
  
+@import "header";
+@import "home";
+@import "about";
+@import "speakers";
+@import "program";
+@import "sponsors";
+@import "register";
+

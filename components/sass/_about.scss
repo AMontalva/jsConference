@@ -1,0 +1,30 @@
+
+/*
+===================ABOUT===================
+===================ABOUT===================
+===================ABOUT===================
+*/
+
+#about {
+  ul {
+    li {
+      float: left;
+      width: 20%;
+      margin-left: 2%;
+      margin-right: 2%;
+    }
+  }
+}
+
+@media(max-width: 320px) {
+	#about {
+	  ul {
+	    li {
+	      float: none;
+	      width: 100%;
+	    }
+	  }
+	}
+}
+
+

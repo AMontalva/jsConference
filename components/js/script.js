@@ -1,10 +1,13 @@
 $(function() {
-  var topoffset = 43;
+  var topoffset = 100;
 
   var isTouch = 'ontouchstart' in document.documentElement;
 
+  var navheight = $("#nav").height();
+
   //window height
   var wheight = $(window).height(); //get height of the window
+  var wheight = wheight - navheight;
 
   $('.fullheight').css('height', wheight);
 
@@ -13,6 +16,20 @@ $(function() {
     $('.fullheight').css('height', wheight);
   }) //on resize
 
+
+// Animated Scrolling
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top-topoffset
+        }, 1000);
+        return false;
+      } // target.length
+    } //location hostname
+  }); //on click
 
 
   //set up ScrollMagic

@@ -18,18 +18,18 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <div class="home">
+
+        <div id="home"><!-- HOME -->
             <div id="header">
                 <nav id="nav">
                     <ul>
                         <li>
-                            <a href="#">Home</a>
-                            <a href="#">About</a>
-                            <a href="#">Speakers</a>
-                            <a href="#">Program</a>
-                            <a href="#">Sponsors</a>
-                            <a href="#">Register</a>
+                            <a href="#home">Home</a>
+                            <a href="#about">About</a>
+                            <a href="#speakers">Speakers</a>
+                            <a href="#program">Program</a>
+                            <a href="#sponsors">Sponsors</a>
+                            <a href="#register">Register</a>
                         </li>
                     </ul>
                 </nav>
@@ -45,9 +45,10 @@
                         <button class="btn">Register</button>
                     </div>
                 </div>
-            </div>
+            </div><!-- HOME -->
 
-            <div id="about" class="wrap">
+
+            <div id="about" class="wrap"><!-- ABOUT -->
                 <h1>What is JS Conference?</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, quaerat, fugit, accusantium, expedita nihil iusto temporibus obcaecati quasi ratione earum voluptatum iure optio asperiores eaque quam unde tempore rem ut. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, voluptatum, magnam repudiandae recusandae quis unde voluptate ex temporibus fugit quidem nam iste modi veritatis! Commodi odit quia doloribus illum sint.</p>
                 <h1>Why Go to JS Conference?</h1>
@@ -70,26 +71,32 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore sit!</p>
                     </li>
                 </ul>
-            </div>
-            <div id="speakers" class="wrap">
+            </div><!-- ABOUT -->
+
+
+            <div id="speakers" class="wrap"><!-- SPEAKERS -->
                 <h1>Speakers</h1>
-                    <script id="speakerstpl" type="text/template">
-                        {{#speakers}}
-                        <ul>
-                            <li>
-                                <h2>{{name}}</h2>
-                                <h3>{{reknown}}</h3>
-                                <p><img src="img/{{shortname}}_tn.jpg" alt="Photo of {{name}}" />{{bio}}</p>
-                            </li>
-                        </ul>
-                        {{/speakers}}
-                    </script>
-            </div>
-            <div id="program" class="wrap">
+                <div id="speakers_temp" class="wrap">
+                        <script id="speakerstpl" type="text/template">
+                            {{#speakers_temp}}
+                            <ul>
+                                <li>
+                                    <h2>{{name}}</h2>
+                                    <h3>{{reknown}}</h3>
+                                    <p><img src="img/{{shortname}}_tn.jpg" alt="Photo of {{name}}" />{{bio}}</p>
+                                </li>
+                            </ul>
+                            {{/speakers_temp}}
+                        </script>
+                </div>
+            </div><!-- SPEAKERS -->
+
+
+            <div id="program" class="wrap"><!-- PROGRAM -->
                 <h1>Program</h1>
-                <div id="day1">
+                <div id="day1_temp">
                     <script id="programtpl" type="text/template">
-                        {{#day1}}
+                        {{#day1_temp}}
                         <table>
                             <tr>
                                 <td>{{time}}</td>
@@ -98,25 +105,34 @@
                                 <td>{{description}}</td>
                             </tr>
                         </table>
-                        {{/day1}}
+                        {{/day1_temp}}
                     </script>
                 </div>
-            </div>
-            <div id="sponsors" class="wrap">
+            </div><!-- PROGRAM -->
+
+            <div id="sponsors" class="wrap"><!-- SPONSORS -->
                 <h1>Sponsors</h1>
-                <div id="sponsor_images">
-                    <script id="sponsorstpl" type="text/template">
-                        {{#sponsor_images}}
-                        <ul>
-                            <li>
-                                <img src="img/{{shortname}}.jpg" alt="Photo of {{shortname}}" />
-                            </li>
-                        </ul>
-                        {{/sponsor_images}}
-                    </script>
+                <div id="sponsors_temp">
+                    <div id="sponsor_images">
+                        <script id="sponsorstpl" type="text/template">
+                            {{#sponsors_temp}}
+                            <ul>
+                                <li>
+                                    <img src="img/{{shortname}}.jpg" alt="Photo of {{shortname}}" />
+                                </li>
+                            </ul>
+                            {{/sponsors_temp}}
+                        </script>
+                    </div>
                 </div>
-            </div>
-            <div id="register"></div>
+            </div><!-- SPONSORS -->
+
+
+
+            <div id="register" class="wrap"><!-- REGISTER -->
+                <h1>REGISTER</h1>
+            </div><!-- REGISTER -->
+
             <div id="footer"></div>  
         </div>
 

@@ -722,6 +722,13 @@ a {
   margin-right: auto;
 }
 
+@media (max-width: 320px) {
+  .wrap {
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 /*
 ===================HEADER===================
 ===================HEADER===================
@@ -749,13 +756,18 @@ a {
   margin-right: 4px;
 }
 
+@media (max-width: 320px) {
+  #nav {
+    padding-bottom: 30px;
+  }
+}
 /*
 ===================HOME===================
 ===================HOME===================
 ===================HOME===================
 */
 .fullheight {
-  background: url("../earth.jpg");
+  background: url("../img/earth2.jpg");
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -764,12 +776,6 @@ a {
 }
 
 .home__desc {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  justify-content: center;
   padding: 200px 0;
   text-align: center;
   color: #FFFFFF;
@@ -791,6 +797,16 @@ a {
   text-decoration: none;
 }
 
+@media (max-width: 320px) {
+  .home__desc {
+    padding: 50px 0;
+  }
+}
+/*
+===================ABOUT===================
+===================ABOUT===================
+===================ABOUT===================
+*/
 #about ul li {
   float: left;
   width: 20%;
@@ -798,11 +814,24 @@ a {
   margin-right: 2%;
 }
 
+@media (max-width: 320px) {
+  #about ul li {
+    float: none;
+    width: 100%;
+  }
+}
+/*
+===================SPEAKERS===================
+===================SPEAKERS===================
+===================SPEAKERS===================
+*/
 #speakers {
   clear: both;
+  height: 1000px;
 }
 #speakers ul {
   list-style: none;
+  margin-left: -40px;
 }
 #speakers ul li {
   width: 20%;
@@ -822,6 +851,38 @@ a {
   margin-right: auto;
 }
 
+@media (max-width: 320px) {
+  #speakers {
+    clear: both;
+    height: 1000px;
+  }
+  #speakers ul {
+    list-style: none;
+    margin-left: -40px;
+  }
+  #speakers ul li {
+    width: 100%;
+    /*height: 400px;*/
+    /*        margin-left: 2%;
+            margin-right: 2%;*/
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+    float: left;
+    font-size: .8em;
+    text-align: center;
+  }
+  #speakers ul li img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/*
+===================PROGRAM===================
+===================PROGRAM===================
+===================PROGRAM===================
+*/
 #program table {
   table-layout: fixed;
   width: 100%;
@@ -833,8 +894,14 @@ a {
   border: 1px solid black;
 }
 
+/*
+===================SPONSORS===================
+===================SPONSORS===================
+===================SPONSORS===================
+*/
 #sponsors ul {
   list-style: none;
+  margin-left: -40px;
 }
 #sponsors ul li {
   width: 16%;
@@ -852,3 +919,31 @@ a {
   margin-left: auto;
   margin-right: auto;
 }
+
+@media (max-width: 320px) {
+  #sponsors ul {
+    list-style: none;
+    margin-left: -40px;
+  }
+  #sponsors ul li {
+    width: 40%;
+    height: 100px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+    float: left;
+    text-align: center;
+  }
+  #sponsors ul li img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/*
+===================REGISTER===================
+===================REGISTER===================
+===================REGISTER===================
+*/

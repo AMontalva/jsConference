@@ -1,0 +1,42 @@
+
+/*
+===================HEADER===================
+===================HEADER===================
+===================HEADER===================
+*/
+
+#header {
+  width: 100%;
+}
+
+#nav {
+  width: 100%;
+  background-color: $white;
+  height: 50px;
+  padding-top: 1px;
+  padding-bottom: 10px;
+  text-align: center;
+  z-index: 9999;
+  clear: both;
+  float: left;
+  ul {
+    li {
+      a {
+        color: $darkgray;
+        font-size: 18px;
+        margin-left: 4px;
+        margin-right: 4px;
+      }
+      
+    }
+  }
+
+}
+
+@media(max-width: 320px) {
+  #nav {
+    padding-bottom: 30px;
+  }
+}
+
+
