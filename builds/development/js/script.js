@@ -40,7 +40,7 @@ $(function() {
     var pull        = $('#pull');
         menu        = $('nav ul');
         menuHeight  = menu.height();
-
+        menuList = $('nav ul li a');
     $(pull).on('click', function(e) {
         e.preventDefault();
         menu.slideToggle();
@@ -52,12 +52,21 @@ $(function() {
             menu.removeAttr('style');
         }
     });
+
+    $(menuList).on('click', function() {
+        var w = $(window).width();
+        if(w < 481) {
+            menu.slideToggle();
+        }
+      
+    });
+
 });
 
 
 
 $(function() {
-  var topoffset = 100;
+  var topoffset = 42;
 
   var isTouch = 'ontouchstart' in document.documentElement;
 
@@ -101,8 +110,6 @@ $(function() {
   var pin = new ScrollScene({
     triggerElement: '#nav',
   }).setPin('#nav').addTo(controller);
-
-
 
 
 }); //on load

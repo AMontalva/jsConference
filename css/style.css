@@ -1118,7 +1118,8 @@ a {
 */
 #speakers {
   clear: both;
-  height: 1000px;
+  /*height: 1000px;*/
+  display: block;
 }
 #speakers ul {
   list-style: none;
@@ -1174,6 +1175,9 @@ a {
 ===================PROGRAM===================
 ===================PROGRAM===================
 */
+#program {
+  display: inline-block;
+}
 #program table {
   table-layout: fixed;
   width: 100%;
@@ -1190,6 +1194,9 @@ a {
 ===================SPONSORS===================
 ===================SPONSORS===================
 */
+#sponsors {
+  display: block;
+}
 #sponsors ul {
   list-style: none;
   margin-left: -40px;
@@ -1238,6 +1245,10 @@ a {
 ===================REGISTER===================
 ===================REGISTER===================
 */
+#register {
+  display: inline-block;
+}
+
 @media (max-width: 320px) {
   input[type="text"] {
     margin-bottom: 20px;
