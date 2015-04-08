@@ -1107,9 +1107,15 @@ a {
 }
 
 @media (max-width: 320px) {
+  h2 {
+    text-align: center;
+  }
+
   #about ul li {
     float: none;
     width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 /*
@@ -1128,7 +1134,7 @@ a {
 }
 #speakers ul li {
   width: 20%;
-  height: 400px;
+  height: 440px;
   margin-left: 2.5%;
   margin-right: 2.5%;
   margin-bottom: 0;
@@ -1143,6 +1149,15 @@ a {
   margin-left: auto;
   margin-right: auto;
 }
+#speakers ul li i {
+  margin-top: 0;
+  padding-top: 0;
+  font-size: 30px;
+  color: #000000;
+}
+#speakers ul li i:hover {
+  color: #008DBC;
+}
 
 @media (max-width: 320px) {
   #speakers {
@@ -1154,7 +1169,7 @@ a {
   }
   #speakers ul li {
     width: 100%;
-    height: 350px;
+    height: 380px;
     /*        margin-left: 2%;
             margin-right: 2%;*/
     margin-bottom: 0;
@@ -1179,29 +1194,11 @@ a {
   display: table;
 }
 
-/*#program {
-  display: inline-block;
-  table {
-    table-layout: fixed;
-    width: 100%;
-  }
-  td {
-    padding: 10px;
-  }
-  table, th, td {
-      border: 1px solid black;
-  }
+.program__table_heading td {
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-@media(max-width: 320px) {
-  table {
-    table-layout: auto;
-  }
-  table td:before {
-    content: attr(data-label);
-    float: left;
-  }
-}*/
 table {
   border: 1px solid #ccc;
   width: 100%;
@@ -1218,9 +1215,9 @@ table tr {
 table th, table td {
   padding: 10px;
   text-align: center;
+  border: 1px solid #ddd;
 }
 table th {
-  text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 1px;
 }
@@ -1231,11 +1228,20 @@ table th {
     overflow: hidden;
   }
 
+  .program__table_heading {
+    display: none;
+  }
+
   table {
     border: 0;
   }
   table thead {
     display: none;
+  }
+  table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: none;
   }
   table tr {
     margin-bottom: 10px;
@@ -1246,7 +1252,7 @@ table th {
     display: block;
     text-align: right;
     font-size: 13px;
-    border-bottom: 1px dotted #ccc;
+    border-bottom: 1px solid #ccc;
   }
   table td:last-child {
     border-bottom: 0;

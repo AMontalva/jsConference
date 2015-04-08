@@ -17,11 +17,16 @@
 }
 
 @media(max-width: 320px) {
+	h2 {
+		text-align: center;
+	}
 	#about {
 	  ul {
 	    li {
 	      float: none;
 	      width: 100%;
+	      margin-left: 0;
+	      margin-right: 0;
 	    }
 	  }
 	}
