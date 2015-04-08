@@ -58,9 +58,7 @@ $(function() {
         if(w < 481) {
             menu.slideToggle();
         }
-      
     });
-
 });
 
 

@@ -106,15 +106,23 @@
 
             <div id="program" class="wrap"><!-- PROGRAM -->
                 <h1>Program</h1>
+                <table>
+                    <tr>
+                        <td data-label="time">Time</td>
+                        <td data-label="title">Title</td>
+                        <td data-label="speaker">Speaker</td>
+                        <td data-label="description">Description</td>
+                    </tr>
+                </table>
                 <div id="day1_temp">
                     <script id="programtpl" type="text/template">
                         {{#day1_temp}}
                         <table>
                             <tr>
-                                <td>{{time}}</td>
-                                <td>{{title}}</td>
-                                <td>{{speaker}}</td>
-                                <td>{{description}}</td>
+                                <td data-label="time">{{time}}</td>
+                                <td data-label="title">{{title}}</td>
+                                <td data-label="speaker">{{speaker}}</td>
+                                <td data-label="description">{{description}}</td>
                             </tr>
                         </table>
                         {{/day1_temp}}

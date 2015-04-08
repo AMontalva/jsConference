@@ -1,11 +1,5 @@
 { "day1_temp" : [
   { 
-    "time":"Time",
-    "title":"Title",
-    "speaker":"Speaker",
-    "description":"Description"
-  },
-  { 
     "time":"11:00am",
     "title":"Lorem ipsum",
     "speaker":"Lorem ipsum dolor",
