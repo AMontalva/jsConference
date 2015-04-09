@@ -1101,9 +1101,15 @@ a {
 */
 #about ul li {
   float: left;
-  width: 20%;
-  margin-left: 2%;
-  margin-right: 2%;
+  width: 30%;
+  margin-left: 1.666666667%;
+  margin-right: 1.666666667%;
+}
+
+.about__description_one {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 320px) {
@@ -1125,7 +1131,6 @@ a {
 */
 #speakers {
   clear: both;
-  /*height: 1000px;*/
   display: block;
 }
 #speakers ul {
@@ -1332,4 +1337,72 @@ table th {
   .btn {
     margin-top: 20px;
   }
+}
+/* jQuery Countdown styles 2.0.0. */
+.is-countdown {
+  /*border: 1px solid #ccc;*/
+  /*background-color: #eee;*/
+}
+
+.countdown-rtl {
+  direction: rtl;
+}
+
+.countdown-holding span {
+  color: #888;
+}
+
+.countdown-row {
+  clear: both;
+  width: 100%;
+  padding: 0px 2px;
+  text-align: center;
+}
+
+.countdown-show1 .countdown-section {
+  width: 98%;
+}
+
+.countdown-show2 .countdown-section {
+  width: 48%;
+}
+
+.countdown-show3 .countdown-section {
+  width: 32.5%;
+}
+
+.countdown-show4 .countdown-section {
+  width: 24.5%;
+}
+
+.countdown-show5 .countdown-section {
+  width: 19.5%;
+}
+
+.countdown-show6 .countdown-section {
+  width: 16.25%;
+}
+
+.countdown-show7 .countdown-section {
+  width: 14%;
+}
+
+.countdown-section {
+  display: block;
+  float: left;
+  font-size: 75%;
+  text-align: center;
+}
+
+.countdown-amount {
+  font-size: 200%;
+}
+
+.countdown-period {
+  display: block;
+}
+
+.countdown-descr {
+  display: block;
+  width: 100%;
 }

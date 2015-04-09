@@ -34,6 +34,1236 @@ $(function() {
 }); //function
 /* ScrollMagic v1.0.8 | (c) Jan Paepke, @janpaepke | license & info: http://janpaepke.github.io/ScrollMagic */
 !function($){ScrollMagic=function(e){"use strict";var t="ScrollMagic",r={container:window,vertical:!0,globalSceneOptions:{},loglevel:2},i=this,o=$.extend({},r,e),s=[],a=!1,l=0,c="PAUSED",g=!0,u=0,d=!1,f=!0,h=function(){if($.each(o,function(e){r.hasOwnProperty(e)||(m(2,'WARNING: Unknown option "'+e+'"'),delete o[e])}),o.container=$(o.container).first(),0===o.container.length)return void m(1,"ERROR creating object ScrollMagic: No valid scroll container supplied");g=!$.contains(document,o.container.get(0)),u=o.vertical?o.container.height():o.container.width(),o.container.on("scroll resize",w);try{TweenLite.ticker.addEventListener("tick",v),d=!0}catch(e){o.container.on("scroll resize",v),d=!1}m(3,"added new "+t+" controller")},p=function(){return o.vertical?o.container.scrollTop():o.container.scrollLeft()},v=function(){if(a&&f){var e=$.isArray(a)?a:s,t=l;l=i.scrollPos();var n=l-t;c=0===n?"PAUSED":n>0?"FORWARD":"REVERSE",i.updateScene(e,!0),0===e.length&&o.loglevel>=3&&m(3,"updating 0 Scenes (nothing added to controller)"),a=!1}},w=function(e){"resize"==e.type&&(u=o.vertical?o.container.height():o.container.width()),a=!0},m=function(e){if(o.loglevel>=e){var r="("+t+") ->",i=Array.prototype.splice.call(arguments,1),s=Function.prototype.bind.call(n,window);i.unshift(e,r),s.apply(window,i)}};return this.addScene=function(e){return $.isArray(e)?$.each(e,function(e,t){i.addScene(t)}):e.parent()!=i?e.addTo(i):-1==$.inArray(s,e)&&(s.push(e),$.each(o.globalSceneOptions,function(t,n){e[t]&&e[t].call(e,n)}),m(3,"added Scene ("+s.length+" total)")),i},this.removeScene=function(e){if($.isArray(e))$.each(e,function(e,t){i.removeScene(t)});else{var t=$.inArray(e,s);t>-1&&(s.splice(t,1),e.remove(),m(3,"removed Scene ("+s.length+" total)"))}return i},this.updateScene=function(e,t){return $.isArray(e)?$.each(e,function(n,r){m(3,"updating Scene "+(n+1)+"/"+e.length+" ("+s.length+" total)"),i.updateScene(r,t)}):t?e.update(!0):($.isArray(a)||(a=[]),-1==$.inArray(e,a)&&a.push(e)),i},this.update=function(e){return w({type:"resize"}),e&&v(),i},this.scrollPos=function(e){return arguments.length?($.isFunction(e)||(e=function(){return e}),p=e,i):p.call(i)},this.info=function(e){var t={size:u,vertical:o.vertical,scrollPos:l,scrollDirection:c,container:o.container,isDocument:g};return arguments.length?void 0!==t[e]?t[e]:void m(1,'ERROR: option "'+e+'" is not available'):t},this.loglevel=function(e){return arguments.length?(o.loglevel!=e&&(o.loglevel=e),i):o.loglevel},this.enabled=function(e){return arguments.length?(f!=e&&(f=!!e,i.updateScene(s,!0)),i):f},this.destroy=function(e){for(;s.length>0;){var n=s[s.length-1];n.destroy(e)}return o.container.off("scroll resize",w),d?TweenLite.ticker.removeEventListener("tick",v):o.container.off("scroll resize",v),m(3,"destroyed "+t+" (reset: "+(e?"true":"false")+")"),null},h(),i},ScrollScene=function(e){"use strict";var t,i,o,s,a=["onCenter","onEnter","onLeave"],l="ScrollScene",c={duration:0,offset:0,triggerElement:null,triggerHook:a[0],reverse:!0,tweenChanges:!1,loglevel:2},g=this,u=$.extend({},c,e),d="BEFORE",f=0,h={start:0,end:0},p=!0,v=function(){m(),g.on("change.internal",function(e){m(),"loglevel"!=e.what&&"tweenChanges"!=e.what&&("reverse"!=e.what&&null===u.triggerElement&&R(),g.update(),("DURING"!==d&&"duration"==e.what||"AFTER"===d&&0===u.duration)&&y())}),g.on("progress.internal",function(){E(),y()})},w=function(e){if(u.loglevel>=e){var t="("+l+") ->",r=Array.prototype.splice.call(arguments,1),i=Function.prototype.bind.call(n,window);r.unshift(e,t),i.apply(window,r)}},m=function(){if($.each(u,function(e){c.hasOwnProperty(e)||(w(2,'WARNING: Unknown option "'+e+'"'),delete u[e])}),u.duration=parseFloat(u.duration),(!$.isNumeric(u.duration)||u.duration<0)&&(w(1,'ERROR: Invalid value for option "duration":',u.duration),u.duration=c.duration),u.offset=parseFloat(u.offset),$.isNumeric(u.offset)||(w(1,'ERROR: Invalid value for option "offset":',u.offset),u.offset=c.offset),null!==u.triggerElement&&0===$(u.triggerElement).length&&(w(1,'ERROR: Element defined in option "triggerElement" was not found:',u.triggerElement),u.triggerElement=c.triggerElement),$.isNumeric(u.triggerHook)||-1!=$.inArray(u.triggerHook,a)||(w(1,'ERROR: Invalid value for option "triggerHook": ',u.triggerHook),u.triggerHook=c.triggerHook),!$.isNumeric(u.loglevel)||u.loglevel<0||u.loglevel>3){var e=u.loglevel;u.loglevel=c.loglevel,w(1,'ERROR: Invalid value for option "loglevel":',e)}if(i&&t&&u.triggerElement&&u.loglevel>=2){var n=i.getTweensOf($(u.triggerElement)),r=t.info("vertical");$.each(n,function(e,t){var n=t.vars.css||t.vars,i=r?void 0!==n.top||void 0!==n.bottom:void 0!==n.left||void 0!==n.right;return i?(w(2,"WARNING: Tweening the position of the trigger element affects the scene timing and should be avoided!"),!1):void 0})}},R=function(){h={start:g.triggerOffset()},t&&(h.start-=t.info("size")*g.triggerHook()),h.end=h.start+u.duration},E=function(e){var t=e>=0&&1>=e?e:f;if(i){if(-1===i.repeat())if(("DURING"===d||"AFTER"===d&&0===u.duration)&&i.paused())i.play();else{if("DURING"===d||i.paused())return!1;i.pause()}else{if(t==i.progress())return!1;0===u.duration?"AFTER"==d?i.play():i.reverse():u.tweenChanges?i.tweenTo(t*i.duration()):i.progress(t).pause()}return!0}return!1},y=function(e){if(o&&t){var n=t.info();if(e||"DURING"!==d&&("AFTER"!==d||0!==u.duration)){var i={position:s.inFlow?"relative":"absolute",top:0,left:0},a=o.css("position")!=i.position;s.pushFollowers?"AFTER"===d&&0===parseFloat(s.spacer.css("padding-top"))?a=!0:"BEFORE"===d&&0===parseFloat(s.spacer.css("padding-bottom"))&&(a=!0):i[n.vertical?"top":"left"]=u.duration*f,o.css(i),a&&(o.removeClass(s.pinnedClass),S())}else{"fixed"!=o.css("position")&&(o.css("position","fixed"),S(),o.addClass(s.pinnedClass));var l=r(s.spacer,!0),c=u.reverse||0===u.duration?n.scrollPos-h.start:Math.round(f*u.duration*10)/10;l.top-=parseFloat(s.spacer.css("margin-top")),l[n.vertical?"top":"left"]+=c,o.css({top:l.top,left:l.left})}}},S=function(){if(o&&t&&s.inFlow){var e="AFTER"===d,n="BEFORE"===d,r="DURING"===d,i="fixed"==o.css("position"),a=t.info("vertical"),l=s.spacer.children().first(),c=$.inArray(s.spacer.css("display"),["block","flex","list-item","table","-webkit-box"])>-1,g={};c?(g["margin-top"]=n||r&&i?o.css("margin-top"):"auto",g["margin-bottom"]=e||r&&i?o.css("margin-bottom"):"auto"):g["margin-top"]=g["margin-bottom"]="auto",s.relSize.width?i?$(window).width()==s.spacer.parent().width()?o.css("width","inherit"):o.css("width",s.spacer.width()):o.css("width","100%"):(g["min-width"]=l.outerWidth(!0),g.width=i?g["min-width"]:"auto"),s.relSize.height?i?$(window).height()==s.spacer.parent().height()?o.css("height","inherit"):o.css("height",s.spacer.height()):o.css("height","100%"):(g["min-height"]=l.outerHeight(!c),g.height=i?g["min-height"]:"auto"),s.pushFollowers&&(g["padding"+(a?"Top":"Left")]=u.duration*f,g["padding"+(a?"Bottom":"Right")]=u.duration*(1-f)),s.spacer.css(g)}},b=function(){t&&o&&"DURING"===d&&(t.info("isDocument")||y())},F=function(){t&&o&&("DURING"===d||"AFTER"===d&&0===u.duration)&&(s.relSize.width&&$(window).width()!=s.spacer.parent().width()||s.relSize.height&&$(window).height()!=s.spacer.parent().height())&&S()};return this.parent=function(){return t},this.duration=function(e){return arguments.length?(u.duration!=e&&(u.duration=e,g.trigger("change",{what:"duration",newval:e})),g):u.duration},this.offset=function(e){return arguments.length?(u.offset!=e&&(u.offset=e,g.trigger("change",{what:"offset",newval:e})),g):u.offset},this.triggerElement=function(e){return arguments.length?(u.triggerElement!=e&&(u.triggerElement=e,g.trigger("change",{what:"triggerElement",newval:e})),g):u.triggerElement},this.triggerHook=function(e){if(!arguments.length){var t;if($.isNumeric(u.triggerHook))t=u.triggerHook;else switch(u.triggerHook){case"onCenter":t=.5;break;case"onLeave":t=0;break;case"onEnter":default:t=1}return t}return u.triggerHook!=e&&(u.triggerHook=e,g.trigger("change",{what:"triggerHook",newval:e})),g},this.reverse=function(e){return arguments.length?(u.reverse!=e&&(u.reverse=e,g.trigger("change",{what:"reverse",newval:e})),g):u.reverse},this.tweenChanges=function(e){return arguments.length?(u.tweenChanges!=e&&(u.tweenChanges=e,g.trigger("change",{what:"tweenChanges",newval:e})),g):u.tweenChanges},this.loglevel=function(e){return arguments.length?(u.loglevel!=e&&(u.loglevel=e,g.trigger("change",{what:"loglevel",newval:e})),g):u.loglevel},this.state=function(){return d},this.startPosition=function(){return this.triggerOffset()},this.triggerOffset=function(){var e=u.offset;if(t){var n=t.info();if(null===u.triggerElement)e+=n.size*g.triggerHook();else{for(var i=$(u.triggerElement).first(),o=r(t.info("container"));i.parent().data("ScrollMagicPinSpacer");)i=i.parent();var s=r(i);n.isDocument||(o.top-=n.scrollPos,o.left-=n.scrollPos),e+=n.vertical?s.top-o.top:s.left-o.left}}return e},this.scrollOffset=function(){return h.start},this.update=function(e){if(t)if(e)if(t.enabled()&&p){var n,r=t.info("scrollPos");null!==u.triggerElement&&R(),n=u.duration>0?(r-h.start)/(h.end-h.start):r>=h.start?1:0,g.trigger("update",{startPos:h.start,endPos:h.end,scrollPos:r}),g.progress(n)}else o&&"fixed"==o.css("position")&&y(!0);else t.updateScene(g,!1);return g},this.progress=function(e){if(arguments.length){var n=!1,r=d,i=t?t.info("scrollDirection"):"PAUSED";if(0>=e&&"BEFORE"!==d&&(e>=f||u.reverse)?(f=0,d="BEFORE",n=!0):e>0&&1>e&&(e>=f||u.reverse)?(f=e,d="DURING",n=!0):e>=1&&"AFTER"!==d?(f=1,d="AFTER",n=!0):"DURING"!==d||u.reverse||y(),n){var o={progress:f,state:d,scrollDirection:i},s=d!=r,a="BEFORE"===d&&0===u.duration;s&&(("DURING"===d||0===u.duration)&&g.trigger("enter",o),("BEFORE"===d||"BEFORE"===r)&&g.trigger(a?"end":"start",o)),g.trigger("progress",o),s&&(("AFTER"===d||"AFTER"===r)&&g.trigger(a?"start":"end",o),("DURING"!==d||0===u.duration)&&g.trigger("leave",o))}return g}return f},this.setTween=function(e){i&&g.removeTween();try{i=new TimelineMax({smoothChildTiming:!0}).add(e).pause()}catch(e){w(1,"ERROR calling method 'setTween()': Supplied argument is not a valid TweenMaxObject")}finally{return e.repeat&&-1===e.repeat()&&(i.repeat(-1),i.yoyo(e.yoyo())),m(),w(3,"added tween"),E(),g}},this.removeTween=function(e){return i&&(e&&E(0),i.kill(),i=void 0,w(3,"removed tween (reset: "+(e?"true":"false")+")")),g},this.setPin=function(e,t){var n={pushFollowers:!0,spacerClass:"scrollmagic-pin-spacer",pinnedClass:""};if(t=$.extend({},n,t),e=$(e).first(),0===e.length)return w(1,"ERROR calling method 'setPin()': Invalid pin element supplied."),g;if("fixed"==e.css("position"))return w(1,"ERROR: Pin does not work with elements that are positioned 'fixed'."),g;if(o){if(o===e)return g;g.removePin()}o=e,o.parent().hide();var r="absolute"!=o.css("position"),i=o.css(["display","top","left","bottom","right"]),a=o.css(["width","height"]);o.parent().show();var l=$("<div></div>").addClass(t.spacerClass).css(i).data("ScrollMagicPinSpacer",!0).css({position:r?"relative":"absolute","margin-left":"auto","margin-right":"auto","box-sizing":"content-box","-moz-box-sizing":"content-box","-webkit-box-sizing":"content-box"});return!r&&t.pushFollowers&&(w(2,"WARNING: If the pinned element is positioned absolutely pushFollowers is disabled."),t.pushFollowers=!1),s={spacer:l,relSize:{width:"%"===a.width.slice(-1),height:"%"===a.height.slice(-1)},pushFollowers:t.pushFollowers,inFlow:r,origStyle:o.attr("style"),pinnedClass:t.pinnedClass},s.relSize.width&&l.css("width",a.width),s.relSize.height&&l.css("height",a.height),o.before(l).appendTo(l).css({position:r?"relative":"absolute",top:"auto",left:"auto",bottom:"auto",right:"auto"}),$(window).on("scroll resize",b),w(3,"added pin"),y(),g},this.removePin=function(e){return o&&(e||!t?(o.insertBefore(s.spacer).attr("style",s.origStyle),s.spacer.remove()):"DURING"===d&&y(!0),$(window).off("scroll resize",b),o=void 0,w(3,"removed pin (reset: "+(e?"true":"false")+")")),g},this.addTo=function(e){return t!=e?(t&&t.removeScene(g),t=e,m(),R(),S(),t.info("container").on("resize",F),w(3,"added "+l+" to controller"),e.addScene(g),g.update(),g):void 0},this.enabled=function(e){return arguments.length?(p!=e&&(p=!!e,g.update(!0)),g):p},this.remove=function(){if(t){t.info("container").off("resize",F);var e=t;t=void 0,w(3,"removed "+l+" from controller"),e.removeScene(g)}return g},this.destroy=function(e){return this.removeTween(e),this.removePin(e),this.remove(),this.off("start end enter leave progress change update change.internal progress.internal"),w(3,"destroyed "+l+" (reset: "+(e?"true":"false")+")"),null},this.on=function(e,t){if($.isFunction(t)){var n=$.trim(e).toLowerCase().replace(/(\w+)\.(\w+)/g,"$1."+l+"_$2").replace(/( |^)(\w+)( |$)/g,"$1$2."+l+"$3");$(g).on(n,t)}else w(1,"ERROR calling method 'on()': Supplied argument is not a valid callback!");return g},this.off=function(e,t){var n=$.trim(e).toLowerCase().replace(/(\w+)\.(\w+)/g,"$1."+l+"_$2").replace(/( |^)(\w+)( |$)/g,"$1$2."+l+"$3");return $(g).off(n,t),g},this.trigger=function(e,t){w(3,"event fired:",e,"->",t);var n={type:$.trim(e).toLowerCase(),target:g};return $.isPlainObject(t)&&(n=$.extend({},t,n)),$(g).trigger(n),g},v(),g};var e=window.console=window.console||{},t=["error","warn","log"];e.log||(e.log=$.noop),$.each(t,function(t,n){e[n]||(e[n]=e.log)});var n=function(n){(n>t.length||0>=n)&&(n=t.length);var r=new Date,i=("0"+r.getHours()).slice(-2)+":"+("0"+r.getMinutes()).slice(-2)+":"+("0"+r.getSeconds()).slice(-2)+":"+("00"+r.getMilliseconds()).slice(-3),o=t[n-1],s=Array.prototype.splice.call(arguments,1),a=Function.prototype.bind.call(e[o],e);s.unshift(i),a.apply(e,s)},r=function(e,t){var n={top:0,left:0},r=e[0];if(r)if(r.getBoundingClientRect){var i=r.getBoundingClientRect();n.top=i.top,n.left=i.left,t||(n.top+=$(document).scrollTop(),n.left+=$(document).scrollLeft())}else n=e.offset()||n,t&&(n.top-=$(document).scrollTop(),n.left-=$(document).scrollLeft());return n}}(jQuery);
+/* Simple JavaScript Inheritance
+ * By John Resig http://ejohn.org/
+ * MIT Licensed.
+ */
+// Inspired by base2 and Prototype
+(function(){
+	var initializing = false;
+
+	// The base JQClass implementation (does nothing)
+	window.JQClass = function(){};
+
+	// Collection of derived classes
+	JQClass.classes = {};
+ 
+	// Create a new JQClass that inherits from this class
+	JQClass.extend = function extender(prop) {
+		var base = this.prototype;
+
+		// Instantiate a base class (but only create the instance,
+		// don't run the init constructor)
+		initializing = true;
+		var prototype = new this();
+		initializing = false;
+
+		// Copy the properties over onto the new prototype
+		for (var name in prop) {
+			// Check if we're overwriting an existing function
+			prototype[name] = typeof prop[name] == 'function' &&
+				typeof base[name] == 'function' ?
+				(function(name, fn){
+					return function() {
+						var __super = this._super;
+
+						// Add a new ._super() method that is the same method
+						// but on the super-class
+						this._super = function(args) {
+							return base[name].apply(this, args || []);
+						};
+
+						var ret = fn.apply(this, arguments);				
+
+						// The method only need to be bound temporarily, so we
+						// remove it when we're done executing
+						this._super = __super;
+
+						return ret;
+					};
+				})(name, prop[name]) :
+				prop[name];
+		}
+
+		// The dummy class constructor
+		function JQClass() {
+			// All construction is actually done in the init method
+			if (!initializing && this._init) {
+				this._init.apply(this, arguments);
+			}
+		}
+
+		// Populate our constructed prototype object
+		JQClass.prototype = prototype;
+
+		// Enforce the constructor to be what we expect
+		JQClass.prototype.constructor = JQClass;
+
+		// And make this class extendable
+		JQClass.extend = extender;
+
+		return JQClass;
+	};
+})();
+
+(function($) { // Ensure $, encapsulate
+
+	/** Abstract base class for collection plugins v1.0.1.
+		Written by Keith Wood (kbwood{at}iinet.com.au) December 2013.
+		Licensed under the MIT (http://keith-wood.name/licence.html) license.
+		@module $.JQPlugin
+		@abstract */
+	JQClass.classes.JQPlugin = JQClass.extend({
+
+		/** Name to identify this plugin.
+			@example name: 'tabs' */
+		name: 'plugin',
+
+		/** Default options for instances of this plugin (default: {}).
+			@example defaultOptions: {
+ 	selectedClass: 'selected',
+ 	triggers: 'click'
+ } */
+		defaultOptions: {},
+		
+		/** Options dependent on the locale.
+			Indexed by language and (optional) country code, with '' denoting the default language (English/US).
+			@example regionalOptions: {
+	'': {
+		greeting: 'Hi'
+	}
+ } */
+		regionalOptions: {},
+		
+		/** Names of getter methods - those that can't be chained (default: []).
+			@example _getters: ['activeTab'] */
+		_getters: [],
+
+		/** Retrieve a marker class for affected elements.
+			@private
+			@return {string} The marker class. */
+		_getMarker: function() {
+			return 'is-' + this.name;
+		},
+		
+		/** Initialise the plugin.
+			Create the jQuery bridge - plugin name <code>xyz</code>
+			produces <code>$.xyz</code> and <code>$.fn.xyz</code>. */
+		_init: function() {
+			// Apply default localisations
+			$.extend(this.defaultOptions, (this.regionalOptions && this.regionalOptions['']) || {});
+			// Camel-case the name
+			var jqName = camelCase(this.name);
+			// Expose jQuery singleton manager
+			$[jqName] = this;
+			// Expose jQuery collection plugin
+			$.fn[jqName] = function(options) {
+				var otherArgs = Array.prototype.slice.call(arguments, 1);
+				if ($[jqName]._isNotChained(options, otherArgs)) {
+					return $[jqName][options].apply($[jqName], [this[0]].concat(otherArgs));
+				}
+				return this.each(function() {
+					if (typeof options === 'string') {
+						if (options[0] === '_' || !$[jqName][options]) {
+							throw 'Unknown method: ' + options;
+						}
+						$[jqName][options].apply($[jqName], [this].concat(otherArgs));
+					}
+					else {
+						$[jqName]._attach(this, options);
+					}
+				});
+			};
+		},
+
+		/** Set default values for all subsequent instances.
+			@param options {object} The new default options.
+			@example $.plugin.setDefauls({name: value}) */
+		setDefaults: function(options) {
+			$.extend(this.defaultOptions, options || {});
+		},
+		
+		/** Determine whether a method is a getter and doesn't permit chaining.
+			@private
+			@param name {string} The method name.
+			@param otherArgs {any[]} Any other arguments for the method.
+			@return {boolean} True if this method is a getter, false otherwise. */
+		_isNotChained: function(name, otherArgs) {
+			if (name === 'option' && (otherArgs.length === 0 ||
+					(otherArgs.length === 1 && typeof otherArgs[0] === 'string'))) {
+				return true;
+			}
+			return $.inArray(name, this._getters) > -1;
+		},
+		
+		/** Initialise an element. Called internally only.
+			Adds an instance object as data named for the plugin.
+			@param elem {Element} The element to enhance.
+			@param options {object} Overriding settings. */
+		_attach: function(elem, options) {
+			elem = $(elem);
+			if (elem.hasClass(this._getMarker())) {
+				return;
+			}
+			elem.addClass(this._getMarker());
+			options = $.extend({}, this.defaultOptions, this._getMetadata(elem), options || {});
+			var inst = $.extend({name: this.name, elem: elem, options: options},
+				this._instSettings(elem, options));
+			elem.data(this.name, inst); // Save instance against element
+			this._postAttach(elem, inst);
+			this.option(elem, options);
+		},
+
+		/** Retrieve additional instance settings.
+			Override this in a sub-class to provide extra settings.
+			@param elem {jQuery} The current jQuery element.
+			@param options {object} The instance options.
+			@return {object} Any extra instance values.
+			@example _instSettings: function(elem, options) {
+ 	return {nav: elem.find(options.navSelector)};
+ } */
+		_instSettings: function(elem, options) {
+			return {};
+		},
+
+		/** Plugin specific post initialisation.
+			Override this in a sub-class to perform extra activities.
+			@param elem {jQuery} The current jQuery element.
+			@param inst {object} The instance settings.
+			@example _postAttach: function(elem, inst) {
+ 	elem.on('click.' + this.name, function() {
+ 		...
+ 	});
+ } */
+		_postAttach: function(elem, inst) {
+		},
+
+		/** Retrieve metadata configuration from the element.
+			Metadata is specified as an attribute:
+			<code>data-&lt;plugin name>="&lt;setting name>: '&lt;value>', ..."</code>.
+			Dates should be specified as strings in this format: 'new Date(y, m-1, d)'.
+			@private
+			@param elem {jQuery} The source element.
+			@return {object} The inline configuration or {}. */
+		_getMetadata: function(elem) {
+			try {
+				var data = elem.data(this.name.toLowerCase()) || '';
+				data = data.replace(/'/g, '"');
+				data = data.replace(/([a-zA-Z0-9]+):/g, function(match, group, i) { 
+					var count = data.substring(0, i).match(/"/g); // Handle embedded ':'
+					return (!count || count.length % 2 === 0 ? '"' + group + '":' : group + ':');
+				});
+				data = $.parseJSON('{' + data + '}');
+				for (var name in data) { // Convert dates
+					var value = data[name];
+					if (typeof value === 'string' && value.match(/^new Date\((.*)\)$/)) {
+						data[name] = eval(value);
+					}
+				}
+				return data;
+			}
+			catch (e) {
+				return {};
+			}
+		},
+
+		/** Retrieve the instance data for element.
+			@param elem {Element} The source element.
+			@return {object} The instance data or {}. */
+		_getInst: function(elem) {
+			return $(elem).data(this.name) || {};
+		},
+		
+		/** Retrieve or reconfigure the settings for a plugin.
+			@param elem {Element} The source element.
+			@param name {object|string} The collection of new option values or the name of a single option.
+			@param [value] {any} The value for a single named option.
+			@return {any|object} If retrieving a single value or all options.
+			@example $(selector).plugin('option', 'name', value)
+ $(selector).plugin('option', {name: value, ...})
+ var value = $(selector).plugin('option', 'name')
+ var options = $(selector).plugin('option') */
+		option: function(elem, name, value) {
+			elem = $(elem);
+			var inst = elem.data(this.name);
+			if  (!name || (typeof name === 'string' && value == null)) {
+				var options = (inst || {}).options;
+				return (options && name ? options[name] : options);
+			}
+			if (!elem.hasClass(this._getMarker())) {
+				return;
+			}
+			var options = name || {};
+			if (typeof name === 'string') {
+				options = {};
+				options[name] = value;
+			}
+			this._optionsChanged(elem, inst, options);
+			$.extend(inst.options, options);
+		},
+		
+		/** Plugin specific options processing.
+			Old value available in <code>inst.options[name]</code>, new value in <code>options[name]</code>.
+			Override this in a sub-class to perform extra activities.
+			@param elem {jQuery} The current jQuery element.
+			@param inst {object} The instance settings.
+			@param options {object} The new options.
+			@example _optionsChanged: function(elem, inst, options) {
+ 	if (options.name != inst.options.name) {
+ 		elem.removeClass(inst.options.name).addClass(options.name);
+ 	}
+ } */
+		_optionsChanged: function(elem, inst, options) {
+		},
+		
+		/** Remove all trace of the plugin.
+			Override <code>_preDestroy</code> for plugin-specific processing.
+			@param elem {Element} The source element.
+			@example $(selector).plugin('destroy') */
+		destroy: function(elem) {
+			elem = $(elem);
+			if (!elem.hasClass(this._getMarker())) {
+				return;
+			}
+			this._preDestroy(elem, this._getInst(elem));
+			elem.removeData(this.name).removeClass(this._getMarker());
+		},
+
+		/** Plugin specific pre destruction.
+			Override this in a sub-class to perform extra activities and undo everything that was
+			done in the <code>_postAttach</code> or <code>_optionsChanged</code> functions.
+			@param elem {jQuery} The current jQuery element.
+			@param inst {object} The instance settings.
+			@example _preDestroy: function(elem, inst) {
+ 	elem.off('.' + this.name);
+ } */
+		_preDestroy: function(elem, inst) {
+		}
+	});
+	
+	/** Convert names from hyphenated to camel-case.
+		@private
+		@param value {string} The original hyphenated name.
+		@return {string} The camel-case version. */
+	function camelCase(name) {
+		return name.replace(/-([a-z])/g, function(match, group) {
+			return group.toUpperCase();
+		});
+	}
+	
+	/** Expose the plugin base.
+		@namespace "$.JQPlugin" */
+	$.JQPlugin = {
+	
+		/** Create a new collection plugin.
+			@memberof "$.JQPlugin"
+			@param [superClass='JQPlugin'] {string} The name of the parent class to inherit from.
+			@param overrides {object} The property/function overrides for the new class.
+			@example $.JQPlugin.createPlugin({
+ 	name: 'tabs',
+ 	defaultOptions: {selectedClass: 'selected'},
+ 	_initSettings: function(elem, options) { return {...}; },
+ 	_postAttach: function(elem, inst) { ... }
+ }); */
+		createPlugin: function(superClass, overrides) {
+			if (typeof superClass === 'object') {
+				overrides = superClass;
+				superClass = 'JQPlugin';
+			}
+			superClass = camelCase(superClass);
+			var className = camelCase(overrides.name);
+			JQClass.classes[className] = JQClass.classes[superClass].extend(overrides);
+			new JQClass.classes[className]();
+		}
+	};
+
+})(jQuery);
+/* http://keith-wood.name/countdown.html
+   Countdown for jQuery v2.0.2.
+   Written by Keith Wood (kbwood{at}iinet.com.au) January 2008.
+   Available under the MIT (http://keith-wood.name/licence.html) license. 
+   Please attribute the author if you use it. */
+
+(function($) { // Hide scope, no $ conflict
+
+	var pluginName = 'countdown';
+
+	var Y = 0; // Years
+	var O = 1; // Months
+	var W = 2; // Weeks
+	var D = 3; // Days
+	var H = 4; // Hours
+	var M = 5; // Minutes
+	var S = 6; // Seconds
+
+	/** Create the countdown plugin.
+		<p>Sets an element to show the time remaining until a given instant.</p>
+		<p>Expects HTML like:</p>
+		<pre>&lt;div>&lt;/div></pre>
+		<p>Provide inline configuration like:</p>
+		<pre>&lt;div data-countdown="name: 'value'">&lt;/div></pre>
+	 	@module Countdown
+		@augments JQPlugin
+		@example $(selector).countdown({until: +300}) */
+	$.JQPlugin.createPlugin({
+	
+		/** The name of the plugin. */
+		name: pluginName,
+
+		/** Countdown expiry callback.
+			Triggered when the countdown expires.
+			@callback expiryCallback */
+
+		/** Countdown server synchronisation callback.
+			Triggered when the countdown is initialised.
+			@callback serverSyncCallback
+			@return {Date} The current date/time on the server as expressed in the local timezone. */
+			
+		/** Countdown tick callback.
+			Triggered on every <code>tickInterval</code> ticks of the countdown.
+			@callback tickCallback
+			@param periods {number[]} The breakdown by period (years, months, weeks, days,
+					hours, minutes, seconds) of the time remaining/passed. */
+
+		/** Countdown which labels callback.
+			Triggered when the countdown is being display to determine which set of labels
+			(<code>labels</code>, <code>labels1</code>, ...) are to be used for the current period value.
+			@callback whichLabelsCallback
+			@param num {number} The current period value.
+			@return {number} The suffix for the label set to use. */
+			
+		/** Default settings for the plugin.
+			@property until {Date|number|string} The date/time to count down to, or number of seconds
+						offset from now, or string of amounts and units for offset(s) from now:
+						'Y' years, 'O' months, 'W' weeks, 'D' days, 'H' hours, 'M' minutes, 'S' seconds.
+			@example until: new Date(2013, 12-1, 25, 13, 30)
+ until: +300
+ until: '+1O -2D'
+			@property [since] {Date|number|string} The date/time to count up from, or
+						number of seconds offset from now, or string for unit offset(s):
+						'Y' years, 'O' months, 'W' weeks, 'D' days, 'H' hours, 'M' minutes, 'S' seconds.
+			@example since: new Date(2013, 1-1, 1)
+ since: -300
+ since: '-1O +2D'
+			@property [timezone=null] {number} The timezone (hours or minutes from GMT) for the target times,
+						or null for client local timezone.
+			@example timezone: +10
+ timezone: -60
+			@property [serverSync=null] {serverSyncCallback} A function to retrieve the current server time
+						for synchronisation.
+			@property [format='dHMS'] {string} The format for display - upper case for always, lower case only if non-zero,
+						'Y' years, 'O' months, 'W' weeks, 'D' days, 'H' hours, 'M' minutes, 'S' seconds.
+			@property [layout=''] {string} Build your own layout for the countdown.
+			@example layout: '{d<}{dn} {dl}{d>} {hnn}:{mnn}:{snn}'
+			@property [compact=false] {boolean} True to display in a compact format, false for an expanded one.
+			@property [padZeroes=false] {boolean} True to add leading zeroes
+			@property [significant=0] {number} The number of periods with non-zero values to show, zero for all.
+			@property [description=''] {string} The description displayed for the countdown.
+			@property [expiryUrl=''] {string} A URL to load upon expiry, replacing the current page.
+			@property [expiryText=''] {string} Text to display upon expiry, replacing the countdown. This may be HTML.
+			@property [alwaysExpire=false] {boolean} True to trigger <code>onExpiry</code> even if target time has passed.
+			@property [onExpiry=null] {expiryCallback} Callback when the countdown expires -
+						receives no parameters and <code>this</code> is the containing division.
+			@example onExpiry: function() {
+	...
+ }
+			@property [onTick=null] {tickCallback} Callback when the countdown is updated -
+						receives <code>number[7]</code> being the breakdown by period
+						(years, months, weeks, days, hours, minutes, seconds - based on
+						<code>format</code>) and <code>this</code> is the containing division.
+			@example onTick: function(periods) {
+ 	var secs = $.countdown.periodsToSeconds(periods);
+ 	if (secs < 300) { // Last five minutes
+		...
+ 	}
+ }
+			@property [tickInterval=1] {number} The interval (seconds) between <code>onTick</code> callbacks. */
+		defaultOptions: {
+			until: null,
+			since: null,
+			timezone: null,
+			serverSync: null,
+			format: 'dHMS',
+			layout: '',
+			compact: false,
+			padZeroes: false,
+			significant: 0,
+			description: '',
+			expiryUrl: '',
+			expiryText: '',
+			alwaysExpire: false,
+			onExpiry: null,
+			onTick: null,
+			tickInterval: 1
+		},
+
+		/** Localisations for the plugin.
+			Entries are objects indexed by the language code ('' being the default US/English).
+			Each object has the following attributes.
+			@property [labels=['Years','Months','Weeks','Days','Hours','Minutes','Seconds']] {string[]}
+						The display texts for the counter periods.
+			@property [labels1=['Year','Month','Week','Day','Hour','Minute','Second']] {string[]}
+						The display texts for the counter periods if they have a value of 1.
+						Add other <code>labels<em>n</em></code> attributes as necessary to
+						cater for other numeric idiosyncrasies of the localisation.
+			@property [compactLabels=['y','m','w','d']] {string[]} The compact texts for the counter periods.
+			@property [whichLabels=null] {whichLabelsCallback} A function to determine which
+						<code>labels<em>n</em></code> to use.
+			@example whichLabels: function(num) {
+	return (num > 1 ? 0 : 1);
+ }
+			@property [digits=['0','1',...,'9']] {number[]} The digits to display (0-9).
+			@property [timeSeparator=':'] {string} Separator for time periods in the compact layout.
+			@property [isRTL=false] {boolean} True for right-to-left languages, false for left-to-right. */
+		regionalOptions: { // Available regional settings, indexed by language/country code
+			'': { // Default regional settings - English/US
+				labels: ['Years', 'Months', 'Weeks', 'Days', 'Hours', 'Minutes', 'Seconds'],
+				labels1: ['Year', 'Month', 'Week', 'Day', 'Hour', 'Minute', 'Second'],
+				compactLabels: ['y', 'm', 'w', 'd'],
+				whichLabels: null,
+				digits: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+				timeSeparator: ':',
+				isRTL: false
+			}
+		},
+		
+		/** Names of getter methods - those that can't be chained. */
+		_getters: ['getTimes'],
+
+		/* Class name for the right-to-left marker. */
+		_rtlClass: pluginName + '-rtl',
+		/* Class name for the countdown section marker. */
+		_sectionClass: pluginName + '-section',
+		/* Class name for the period amount marker. */
+		_amountClass: pluginName + '-amount',
+		/* Class name for the period name marker. */
+		_periodClass: pluginName + '-period',
+		/* Class name for the countdown row marker. */
+		_rowClass: pluginName + '-row',
+		/* Class name for the holding countdown marker. */
+		_holdingClass: pluginName + '-holding',
+		/* Class name for the showing countdown marker. */
+		_showClass: pluginName + '-show',
+		/* Class name for the description marker. */
+		_descrClass: pluginName + '-descr',
+
+		/* List of currently active countdown elements. */
+		_timerElems: [],
+
+		/** Additional setup for the countdown.
+			Apply default localisations.
+			Create the timer. */
+		_init: function() {
+			var self = this;
+			this._super();
+			this._serverSyncs = [];
+			var now = (typeof Date.now == 'function' ? Date.now :
+				function() { return new Date().getTime(); });
+			var perfAvail = (window.performance && typeof window.performance.now == 'function');
+			// Shared timer for all countdowns
+			function timerCallBack(timestamp) {
+				var drawStart = (timestamp < 1e12 ? // New HTML5 high resolution timer
+					(perfAvail ? (performance.now() + performance.timing.navigationStart) : now()) :
+					// Integer milliseconds since unix epoch
+					timestamp || now());
+				if (drawStart - animationStartTime >= 1000) {
+							self._updateElems();
+					animationStartTime = drawStart;
+				}
+				requestAnimationFrame(timerCallBack);
+			}
+			var requestAnimationFrame = window.requestAnimationFrame ||
+				window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame ||
+				window.oRequestAnimationFrame || window.msRequestAnimationFrame || null;
+				// This is when we expect a fall-back to setInterval as it's much more fluid
+			var animationStartTime = 0;
+			if (!requestAnimationFrame || $.noRequestAnimationFrame) {
+				$.noRequestAnimationFrame = null;
+						setInterval(function() { self._updateElems(); }, 980); // Fall back to good old setInterval
+			}
+			else {
+				animationStartTime = window.animationStartTime ||
+					window.webkitAnimationStartTime || window.mozAnimationStartTime ||
+					window.oAnimationStartTime || window.msAnimationStartTime || now();
+				requestAnimationFrame(timerCallBack);
+			}
+		},
+	
+		/** Convert a date/time to UTC.
+			@param tz {number} The hour or minute offset from GMT, e.g. +9, -360.
+			@param year {Date|number} the date/time in that timezone or the year in that timezone.
+			@param [month] {number} The month (0 - 11) (omit if <code>year</code> is a <code>Date</code>).
+			@param [day] {number} The day (omit if <code>year</code> is a <code>Date</code>).
+			@param [hours] {number} The hour (omit if <code>year</code> is a <code>Date</code>).
+			@param [mins] {number} The minute (omit if <code>year</code> is a <code>Date</code>).
+			@param [secs] {number} The second (omit if <code>year</code> is a <code>Date</code>).
+			@param [ms] {number} The millisecond (omit if <code>year</code> is a <code>Date</code>).
+			@return {Date} The equivalent UTC date/time.
+			@example $.countdown.UTCDate(+10, 2013, 12-1, 25, 12, 0)
+ $.countdown.UTCDate(-7, new Date(2013, 12-1, 25, 12, 0)) */
+		UTCDate: function(tz, year, month, day, hours, mins, secs, ms) {
+			if (typeof year == 'object' && year.constructor == Date) {
+				ms = year.getMilliseconds();
+				secs = year.getSeconds();
+				mins = year.getMinutes();
+				hours = year.getHours();
+				day = year.getDate();
+				month = year.getMonth();
+				year = year.getFullYear();
+			}
+			var d = new Date();
+			d.setUTCFullYear(year);
+			d.setUTCDate(1);
+			d.setUTCMonth(month || 0);
+			d.setUTCDate(day || 1);
+			d.setUTCHours(hours || 0);
+			d.setUTCMinutes((mins || 0) - (Math.abs(tz) < 30 ? tz * 60 : tz));
+			d.setUTCSeconds(secs || 0);
+			d.setUTCMilliseconds(ms || 0);
+			return d;
+		},
+
+		/** Convert a set of periods into seconds.
+	   Averaged for months and years.
+			@param periods {number[]} The periods per year/month/week/day/hour/minute/second.
+			@return {number} The corresponding number of seconds.
+			@example var secs = $.countdown.periodsToSeconds(periods) */
+		periodsToSeconds: function(periods) {
+			return periods[0] * 31557600 + periods[1] * 2629800 + periods[2] * 604800 +
+				periods[3] * 86400 + periods[4] * 3600 + periods[5] * 60 + periods[6];
+		},
+
+		/** Resynchronise the countdowns with the server.
+			@example $.countdown.resync() */
+		resync: function() {
+			var self = this;
+			$('.' + this._getMarker()).each(function() { // Each countdown
+				var inst = $.data(this, self.name);
+				if (inst.options.serverSync) { // If synced
+					var serverSync = null;
+					for (var i = 0; i < self._serverSyncs.length; i++) {
+						if (self._serverSyncs[i][0] == inst.options.serverSync) { // Find sync details
+							serverSync = self._serverSyncs[i];
+							break;
+						}
+					}
+					if (serverSync[2] == null) { // Recalculate if missing
+						var serverResult = ($.isFunction(inst.options.serverSync) ?
+							inst.options.serverSync.apply(this, []) : null);
+						serverSync[2] =
+							(serverResult ? new Date().getTime() - serverResult.getTime() : 0) - serverSync[1];
+					}
+					if (inst._since) { // Apply difference
+						inst._since.setMilliseconds(inst._since.getMilliseconds() + serverSync[2]);
+					}
+					inst._until.setMilliseconds(inst._until.getMilliseconds() + serverSync[2]);
+				}
+			});
+			for (var i = 0; i < self._serverSyncs.length; i++) { // Update sync details
+				if (self._serverSyncs[i][2] != null) {
+					self._serverSyncs[i][1] += self._serverSyncs[i][2];
+					delete self._serverSyncs[i][2];
+				}
+			}
+		},
+
+		_instSettings: function(elem, options) {
+			return {_periods: [0, 0, 0, 0, 0, 0, 0]};
+		},
+
+		/** Add an element to the list of active ones.
+			@private
+			@param elem {Element} The countdown element. */
+		_addElem: function(elem) {
+			if (!this._hasElem(elem)) {
+				this._timerElems.push(elem);
+			}
+		},
+
+		/** See if an element is in the list of active ones.
+			@private
+			@param elem {Element} The countdown element.
+			@return {boolean} True if present, false if not. */
+		_hasElem: function(elem) {
+			return ($.inArray(elem, this._timerElems) > -1);
+		},
+
+		/** Remove an element from the list of active ones.
+			@private
+			@param elem {Element} The countdown element. */
+		_removeElem: function(elem) {
+			this._timerElems = $.map(this._timerElems,
+				function(value) { return (value == elem ? null : value); }); // delete entry
+		},
+
+		/** Update each active timer element.
+			@private */
+		_updateElems: function() {
+			for (var i = this._timerElems.length - 1; i >= 0; i--) {
+				this._updateCountdown(this._timerElems[i]);
+			}
+		},
+
+		_optionsChanged: function(elem, inst, options) {
+			if (options.layout) {
+				options.layout = options.layout.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+			}
+			this._resetExtraLabels(inst.options, options);
+			var timezoneChanged = (inst.options.timezone != options.timezone);
+			$.extend(inst.options, options);
+			this._adjustSettings(elem, inst,
+				options.until != null || options.since != null || timezoneChanged);
+			var now = new Date();
+			if ((inst._since && inst._since < now) || (inst._until && inst._until > now)) {
+				this._addElem(elem[0]);
+			}
+			this._updateCountdown(elem, inst);
+		},
+
+		/** Redisplay the countdown with an updated display.
+			@private
+			@param elem {Element|jQuery} The containing division.
+			@param inst {object} The current settings for this instance. */
+		_updateCountdown: function(elem, inst) {
+			elem = elem.jquery ? elem : $(elem);
+			inst = inst || this._getInst(elem);
+			if (!inst) {
+				return;
+			}
+			elem.html(this._generateHTML(inst)).toggleClass(this._rtlClass, inst.options.isRTL);
+			if ($.isFunction(inst.options.onTick)) {
+				var periods = inst._hold != 'lap' ? inst._periods :
+					this._calculatePeriods(inst, inst._show, inst.options.significant, new Date());
+				if (inst.options.tickInterval == 1 ||
+						this.periodsToSeconds(periods) % inst.options.tickInterval == 0) {
+					inst.options.onTick.apply(elem[0], [periods]);
+				}
+			}
+			var expired = inst._hold != 'pause' &&
+				(inst._since ? inst._now.getTime() < inst._since.getTime() :
+				inst._now.getTime() >= inst._until.getTime());
+			if (expired && !inst._expiring) {
+				inst._expiring = true;
+				if (this._hasElem(elem[0]) || inst.options.alwaysExpire) {
+					this._removeElem(elem[0]);
+					if ($.isFunction(inst.options.onExpiry)) {
+						inst.options.onExpiry.apply(elem[0], []);
+					}
+					if (inst.options.expiryText) {
+						var layout = inst.options.layout;
+						inst.options.layout = inst.options.expiryText;
+						this._updateCountdown(elem[0], inst);
+						inst.options.layout = layout;
+					}
+					if (inst.options.expiryUrl) {
+						window.location = inst.options.expiryUrl;
+					}
+				}
+				inst._expiring = false;
+			}
+			else if (inst._hold == 'pause') {
+				this._removeElem(elem[0]);
+			}
+		},
+
+		/** Reset any extra labelsn and compactLabelsn entries if changing labels.
+			@private
+			@param base {object} The options to be updated.
+			@param options {object} The new option values. */
+		_resetExtraLabels: function(base, options) {
+			for (var n in options) {
+				if (n.match(/[Ll]abels[02-9]|compactLabels1/)) {
+					base[n] = options[n];
+				}
+			}
+			for (var n in base) { // Remove custom numbered labels
+				if (n.match(/[Ll]abels[02-9]|compactLabels1/) && typeof options[n] === 'undefined') {
+					base[n] = null;
+				}
+			}
+		},
+	
+		/** Calculate internal settings for an instance.
+			@private
+			@param elem {jQuery} The containing division.
+			@param inst {object} The current settings for this instance.
+			@param recalc {boolean} True if until or since are set. */
+		_adjustSettings: function(elem, inst, recalc) {
+		var serverEntry = null;
+		for (var i = 0; i < this._serverSyncs.length; i++) {
+			if (this._serverSyncs[i][0] == inst.options.serverSync) {
+				serverEntry = this._serverSyncs[i][1];
+				break;
+			}
+		}
+		if (serverEntry != null) {
+				var serverOffset = (inst.options.serverSync ? serverEntry : 0);
+				var now = new Date();
+		}
+		else {
+			var serverResult = ($.isFunction(inst.options.serverSync) ?
+					inst.options.serverSync.apply(elem[0], []) : null);
+				var now = new Date();
+				var serverOffset = (serverResult ? now.getTime() - serverResult.getTime() : 0);
+			this._serverSyncs.push([inst.options.serverSync, serverOffset]);
+		}
+		var timezone = inst.options.timezone;
+		timezone = (timezone == null ? -now.getTimezoneOffset() : timezone);
+		if (recalc || (!recalc && inst._until == null && inst._since == null)) {
+			inst._since = inst.options.since;
+			if (inst._since != null) {
+				inst._since = this.UTCDate(timezone, this._determineTime(inst._since, null));
+				if (inst._since && serverOffset) {
+					inst._since.setMilliseconds(inst._since.getMilliseconds() + serverOffset);
+				}
+			}
+			inst._until = this.UTCDate(timezone, this._determineTime(inst.options.until, now));
+			if (serverOffset) {
+				inst._until.setMilliseconds(inst._until.getMilliseconds() + serverOffset);
+			}
+		}
+		inst._show = this._determineShow(inst);
+	},
+
+		/** Remove the countdown widget from a div.
+			@param elem {jQuery} The containing division.
+			@param inst {object} The current instance object. */
+		_preDestroy: function(elem, inst) {
+			this._removeElem(elem[0]);
+			elem.empty();
+	},
+
+		/** Pause a countdown widget at the current time.
+	   Stop it running but remember and display the current time.
+			@param elem {Element} The containing division.
+			@example $(selector).countdown('pause') */
+		pause: function(elem) {
+			this._hold(elem, 'pause');
+	},
+
+		/** Pause a countdown widget at the current time.
+	   Stop the display but keep the countdown running.
+			@param elem {Element} The containing division.
+			@example $(selector).countdown('lap') */
+		lap: function(elem) {
+			this._hold(elem, 'lap');
+		},
+
+		/** Resume a paused countdown widget.
+			@param elem {Element} The containing division.
+			@example $(selector).countdown('resume') */
+		resume: function(elem) {
+			this._hold(elem, null);
+		},
+
+		/** Toggle a paused countdown widget.
+			@param elem {Element} The containing division.
+			@example $(selector).countdown('toggle') */
+		toggle: function(elem) {
+			var inst = $.data(elem, this.name) || {};
+			this[!inst._hold ? 'pause' : 'resume'](elem);
+		},
+
+		/** Toggle a lapped countdown widget.
+			@param elem {Element} The containing division.
+			@example $(selector).countdown('toggleLap') */
+		toggleLap: function(elem) {
+			var inst = $.data(elem, this.name) || {};
+			this[!inst._hold ? 'lap' : 'resume'](elem);
+		},
+
+		/** Pause or resume a countdown widget.
+			@private
+			@param elem {Element} The containing division.
+			@param hold {string} The new hold setting. */
+		_hold: function(elem, hold) {
+			var inst = $.data(elem, this.name);
+		if (inst) {
+			if (inst._hold == 'pause' && !hold) {
+				inst._periods = inst._savePeriods;
+				var sign = (inst._since ? '-' : '+');
+				inst[inst._since ? '_since' : '_until'] =
+					this._determineTime(sign + inst._periods[0] + 'y' +
+						sign + inst._periods[1] + 'o' + sign + inst._periods[2] + 'w' +
+						sign + inst._periods[3] + 'd' + sign + inst._periods[4] + 'h' + 
+						sign + inst._periods[5] + 'm' + sign + inst._periods[6] + 's');
+					this._addElem(elem);
+			}
+			inst._hold = hold;
+			inst._savePeriods = (hold == 'pause' ? inst._periods : null);
+				$.data(elem, this.name, inst);
+				this._updateCountdown(elem, inst);
+		}
+	},
+
+		/** Return the current time periods.
+			@param elem {Element} The containing division.
+			@return {number[]} The current periods for the countdown.
+			@example var periods = $(selector).countdown('getTimes') */
+		getTimes: function(elem) {
+			var inst = $.data(elem, this.name);
+		return (!inst ? null : (inst._hold == 'pause' ? inst._savePeriods : (!inst._hold ? inst._periods :
+			this._calculatePeriods(inst, inst._show, inst.options.significant, new Date()))));
+	},
+
+		/** A time may be specified as an exact value or a relative one.
+			@private
+			@param setting {string|number|Date} The date/time value as a relative or absolute value.
+			@param defaultTime {Date} The date/time to use if no other is supplied.
+			@return {Date} The corresponding date/time. */
+	_determineTime: function(setting, defaultTime) {
+			var self = this;
+		var offsetNumeric = function(offset) { // e.g. +300, -2
+			var time = new Date();
+			time.setTime(time.getTime() + offset * 1000);
+			return time;
+		};
+		var offsetString = function(offset) { // e.g. '+2d', '-4w', '+3h +30m'
+			offset = offset.toLowerCase();
+			var time = new Date();
+			var year = time.getFullYear();
+			var month = time.getMonth();
+			var day = time.getDate();
+			var hour = time.getHours();
+			var minute = time.getMinutes();
+			var second = time.getSeconds();
+			var pattern = /([+-]?[0-9]+)\s*(s|m|h|d|w|o|y)?/g;
+			var matches = pattern.exec(offset);
+			while (matches) {
+				switch (matches[2] || 's') {
+					case 's': second += parseInt(matches[1], 10); break;
+					case 'm': minute += parseInt(matches[1], 10); break;
+					case 'h': hour += parseInt(matches[1], 10); break;
+					case 'd': day += parseInt(matches[1], 10); break;
+					case 'w': day += parseInt(matches[1], 10) * 7; break;
+					case 'o':
+						month += parseInt(matches[1], 10); 
+							day = Math.min(day, self._getDaysInMonth(year, month));
+						break;
+					case 'y':
+						year += parseInt(matches[1], 10);
+							day = Math.min(day, self._getDaysInMonth(year, month));
+						break;
+				}
+				matches = pattern.exec(offset);
+			}
+			return new Date(year, month, day, hour, minute, second, 0);
+		};
+		var time = (setting == null ? defaultTime :
+			(typeof setting == 'string' ? offsetString(setting) :
+			(typeof setting == 'number' ? offsetNumeric(setting) : setting)));
+		if (time) time.setMilliseconds(0);
+		return time;
+	},
+
+		/** Determine the number of days in a month.
+			@private
+			@param year {number} The year.
+			@param month {number} The month.
+			@return {number} The days in that month. */
+	_getDaysInMonth: function(year, month) {
+		return 32 - new Date(year, month, 32).getDate();
+	},
+
+		/** Default implementation to determine which set of labels should be used for an amount.
+			Use the <code>labels</code> attribute with the same numeric suffix (if it exists).
+			@private
+			@param num {number} The amount to be displayed.
+			@return {number} The set of labels to be used for this amount. */
+	_normalLabels: function(num) {
+		return num;
+	},
+
+		/** Generate the HTML to display the countdown widget.
+			@private
+			@param inst {object} The current settings for this instance.
+			@return {string} The new HTML for the countdown display. */
+	_generateHTML: function(inst) {
+		var self = this;
+		// Determine what to show
+		inst._periods = (inst._hold ? inst._periods :
+			this._calculatePeriods(inst, inst._show, inst.options.significant, new Date()));
+		// Show all 'asNeeded' after first non-zero value
+		var shownNonZero = false;
+		var showCount = 0;
+		var sigCount = inst.options.significant;
+		var show = $.extend({}, inst._show);
+		for (var period = Y; period <= S; period++) {
+			shownNonZero |= (inst._show[period] == '?' && inst._periods[period] > 0);
+			show[period] = (inst._show[period] == '?' && !shownNonZero ? null : inst._show[period]);
+			showCount += (show[period] ? 1 : 0);
+			sigCount -= (inst._periods[period] > 0 ? 1 : 0);
+		}
+		var showSignificant = [false, false, false, false, false, false, false];
+		for (var period = S; period >= Y; period--) { // Determine significant periods
+			if (inst._show[period]) {
+				if (inst._periods[period]) {
+					showSignificant[period] = true;
+				}
+				else {
+					showSignificant[period] = sigCount > 0;
+					sigCount--;
+				}
+			}
+		}
+		var labels = (inst.options.compact ? inst.options.compactLabels : inst.options.labels);
+		var whichLabels = inst.options.whichLabels || this._normalLabels;
+		var showCompact = function(period) {
+			var labelsNum = inst.options['compactLabels' + whichLabels(inst._periods[period])];
+			return (show[period] ? self._translateDigits(inst, inst._periods[period]) +
+				(labelsNum ? labelsNum[period] : labels[period]) + ' ' : '');
+		};
+		var minDigits = (inst.options.padZeroes ? 2 : 1);
+		var showFull = function(period) {
+			var labelsNum = inst.options['labels' + whichLabels(inst._periods[period])];
+			return ((!inst.options.significant && show[period]) ||
+				(inst.options.significant && showSignificant[period]) ?
+					'<span class="' + self._sectionClass + '">' +
+					'<span class="' + self._amountClass + '">' +
+				self._minDigits(inst, inst._periods[period], minDigits) + '</span>' +
+				'<span class="' + self._periodClass + '">' +
+				(labelsNum ? labelsNum[period] : labels[period]) + '</span></span>' : '');
+		};
+		return (inst.options.layout ? this._buildLayout(inst, show, inst.options.layout,
+			inst.options.compact, inst.options.significant, showSignificant) :
+			((inst.options.compact ? // Compact version
+			'<span class="' + this._rowClass + ' ' + this._amountClass +
+			(inst._hold ? ' ' + this._holdingClass : '') + '">' + 
+			showCompact(Y) + showCompact(O) + showCompact(W) + showCompact(D) + 
+			(show[H] ? this._minDigits(inst, inst._periods[H], 2) : '') +
+			(show[M] ? (show[H] ? inst.options.timeSeparator : '') +
+			this._minDigits(inst, inst._periods[M], 2) : '') +
+			(show[S] ? (show[H] || show[M] ? inst.options.timeSeparator : '') +
+			this._minDigits(inst, inst._periods[S], 2) : '') :
+			// Full version
+			'<span class="' + this._rowClass + ' ' + this._showClass + (inst.options.significant || showCount) +
+			(inst._hold ? ' ' + this._holdingClass : '') + '">' +
+			showFull(Y) + showFull(O) + showFull(W) + showFull(D) +
+			showFull(H) + showFull(M) + showFull(S)) + '</span>' +
+			(inst.options.description ? '<span class="' + this._rowClass + ' ' + this._descrClass + '">' +
+			inst.options.description + '</span>' : '')));
+	},
+
+		/** Construct a custom layout.
+			@private
+			@param inst {object} The current settings for this instance.
+			@param show {boolean[]} Flags indicating which periods are requested.
+			@param layout {string} The customised layout.
+			@param compact {boolean} True if using compact labels.
+			@param significant {number} The number of periods with values to show, zero for all.
+			@param showSignificant {boolean[]} Other periods to show for significance.
+			@return {string} The custom HTML. */
+	_buildLayout: function(inst, show, layout, compact, significant, showSignificant) {
+		var labels = inst.options[compact ? 'compactLabels' : 'labels'];
+		var whichLabels = inst.options.whichLabels || this._normalLabels;
+		var labelFor = function(index) {
+			return (inst.options[(compact ? 'compactLabels' : 'labels') +
+				whichLabels(inst._periods[index])] || labels)[index];
+		};
+		var digit = function(value, position) {
+			return inst.options.digits[Math.floor(value / position) % 10];
+		};
+		var subs = {desc: inst.options.description, sep: inst.options.timeSeparator,
+			yl: labelFor(Y), yn: this._minDigits(inst, inst._periods[Y], 1),
+			ynn: this._minDigits(inst, inst._periods[Y], 2),
+			ynnn: this._minDigits(inst, inst._periods[Y], 3), y1: digit(inst._periods[Y], 1),
+			y10: digit(inst._periods[Y], 10), y100: digit(inst._periods[Y], 100),
+			y1000: digit(inst._periods[Y], 1000),
+			ol: labelFor(O), on: this._minDigits(inst, inst._periods[O], 1),
+			onn: this._minDigits(inst, inst._periods[O], 2),
+			onnn: this._minDigits(inst, inst._periods[O], 3), o1: digit(inst._periods[O], 1),
+			o10: digit(inst._periods[O], 10), o100: digit(inst._periods[O], 100),
+			o1000: digit(inst._periods[O], 1000),
+			wl: labelFor(W), wn: this._minDigits(inst, inst._periods[W], 1),
+			wnn: this._minDigits(inst, inst._periods[W], 2),
+			wnnn: this._minDigits(inst, inst._periods[W], 3), w1: digit(inst._periods[W], 1),
+			w10: digit(inst._periods[W], 10), w100: digit(inst._periods[W], 100),
+			w1000: digit(inst._periods[W], 1000),
+			dl: labelFor(D), dn: this._minDigits(inst, inst._periods[D], 1),
+			dnn: this._minDigits(inst, inst._periods[D], 2),
+			dnnn: this._minDigits(inst, inst._periods[D], 3), d1: digit(inst._periods[D], 1),
+			d10: digit(inst._periods[D], 10), d100: digit(inst._periods[D], 100),
+			d1000: digit(inst._periods[D], 1000),
+			hl: labelFor(H), hn: this._minDigits(inst, inst._periods[H], 1),
+			hnn: this._minDigits(inst, inst._periods[H], 2),
+			hnnn: this._minDigits(inst, inst._periods[H], 3), h1: digit(inst._periods[H], 1),
+			h10: digit(inst._periods[H], 10), h100: digit(inst._periods[H], 100),
+			h1000: digit(inst._periods[H], 1000),
+			ml: labelFor(M), mn: this._minDigits(inst, inst._periods[M], 1),
+			mnn: this._minDigits(inst, inst._periods[M], 2),
+			mnnn: this._minDigits(inst, inst._periods[M], 3), m1: digit(inst._periods[M], 1),
+			m10: digit(inst._periods[M], 10), m100: digit(inst._periods[M], 100),
+			m1000: digit(inst._periods[M], 1000),
+			sl: labelFor(S), sn: this._minDigits(inst, inst._periods[S], 1),
+			snn: this._minDigits(inst, inst._periods[S], 2),
+			snnn: this._minDigits(inst, inst._periods[S], 3), s1: digit(inst._periods[S], 1),
+			s10: digit(inst._periods[S], 10), s100: digit(inst._periods[S], 100),
+			s1000: digit(inst._periods[S], 1000)};
+		var html = layout;
+		// Replace period containers: {p<}...{p>}
+		for (var i = Y; i <= S; i++) {
+			var period = 'yowdhms'.charAt(i);
+			var re = new RegExp('\\{' + period + '<\\}([\\s\\S]*)\\{' + period + '>\\}', 'g');
+			html = html.replace(re, ((!significant && show[i]) ||
+				(significant && showSignificant[i]) ? '$1' : ''));
+		}
+		// Replace period values: {pn}
+		$.each(subs, function(n, v) {
+			var re = new RegExp('\\{' + n + '\\}', 'g');
+			html = html.replace(re, v);
+		});
+		return html;
+	},
+
+		/** Ensure a numeric value has at least n digits for display.
+			@private
+			@param inst {object} The current settings for this instance.
+			@param value {number} The value to display.
+			@param len {number} The minimum length.
+			@return {string} The display text. */
+	_minDigits: function(inst, value, len) {
+		value = '' + value;
+		if (value.length >= len) {
+			return this._translateDigits(inst, value);
+		}
+		value = '0000000000' + value;
+		return this._translateDigits(inst, value.substr(value.length - len));
+	},
+
+		/** Translate digits into other representations.
+			@private
+			@param inst {object} The current settings for this instance.
+			@param value {string} The text to translate.
+			@return {string} The translated text. */
+	_translateDigits: function(inst, value) {
+		return ('' + value).replace(/[0-9]/g, function(digit) {
+				return inst.options.digits[digit];
+			});
+	},
+
+		/** Translate the format into flags for each period.
+			@private
+			@param inst {object} The current settings for this instance.
+			@return {string[]} Flags indicating which periods are requested (?) or
+					required (!) by year, month, week, day, hour, minute, second. */
+	_determineShow: function(inst) {
+		var format = inst.options.format;
+		var show = [];
+		show[Y] = (format.match('y') ? '?' : (format.match('Y') ? '!' : null));
+		show[O] = (format.match('o') ? '?' : (format.match('O') ? '!' : null));
+		show[W] = (format.match('w') ? '?' : (format.match('W') ? '!' : null));
+		show[D] = (format.match('d') ? '?' : (format.match('D') ? '!' : null));
+		show[H] = (format.match('h') ? '?' : (format.match('H') ? '!' : null));
+		show[M] = (format.match('m') ? '?' : (format.match('M') ? '!' : null));
+		show[S] = (format.match('s') ? '?' : (format.match('S') ? '!' : null));
+		return show;
+	},
+	
+		/** Calculate the requested periods between now and the target time.
+			@private
+			@param inst {object} The current settings for this instance.
+			@param show {string[]} Flags indicating which periods are requested/required.
+			@param significant {number} The number of periods with values to show, zero for all.
+			@param now {Date} The current date and time.
+			@return {number[]} The current time periods (always positive)
+					by year, month, week, day, hour, minute, second. */
+	_calculatePeriods: function(inst, show, significant, now) {
+		// Find endpoints
+		inst._now = now;
+		inst._now.setMilliseconds(0);
+		var until = new Date(inst._now.getTime());
+		if (inst._since) {
+			if (now.getTime() < inst._since.getTime()) {
+				inst._now = now = until;
+			}
+			else {
+				now = inst._since;
+			}
+		}
+		else {
+			until.setTime(inst._until.getTime());
+			if (now.getTime() > inst._until.getTime()) {
+				inst._now = now = until;
+			}
+		}
+		// Calculate differences by period
+		var periods = [0, 0, 0, 0, 0, 0, 0];
+		if (show[Y] || show[O]) {
+			// Treat end of months as the same
+			var lastNow = this._getDaysInMonth(now.getFullYear(), now.getMonth());
+			var lastUntil = this._getDaysInMonth(until.getFullYear(), until.getMonth());
+			var sameDay = (until.getDate() == now.getDate() ||
+				(until.getDate() >= Math.min(lastNow, lastUntil) &&
+				now.getDate() >= Math.min(lastNow, lastUntil)));
+			var getSecs = function(date) {
+				return (date.getHours() * 60 + date.getMinutes()) * 60 + date.getSeconds();
+			};
+			var months = Math.max(0,
+				(until.getFullYear() - now.getFullYear()) * 12 + until.getMonth() - now.getMonth() +
+				((until.getDate() < now.getDate() && !sameDay) ||
+				(sameDay && getSecs(until) < getSecs(now)) ? -1 : 0));
+			periods[Y] = (show[Y] ? Math.floor(months / 12) : 0);
+			periods[O] = (show[O] ? months - periods[Y] * 12 : 0);
+			// Adjust for months difference and end of month if necessary
+			now = new Date(now.getTime());
+			var wasLastDay = (now.getDate() == lastNow);
+			var lastDay = this._getDaysInMonth(now.getFullYear() + periods[Y],
+				now.getMonth() + periods[O]);
+			if (now.getDate() > lastDay) {
+				now.setDate(lastDay);
+			}
+			now.setFullYear(now.getFullYear() + periods[Y]);
+			now.setMonth(now.getMonth() + periods[O]);
+			if (wasLastDay) {
+				now.setDate(lastDay);
+			}
+		}
+		var diff = Math.floor((until.getTime() - now.getTime()) / 1000);
+		var extractPeriod = function(period, numSecs) {
+			periods[period] = (show[period] ? Math.floor(diff / numSecs) : 0);
+			diff -= periods[period] * numSecs;
+		};
+		extractPeriod(W, 604800);
+		extractPeriod(D, 86400);
+		extractPeriod(H, 3600);
+		extractPeriod(M, 60);
+		extractPeriod(S, 1);
+		if (diff > 0 && !inst._since) { // Round up if left overs
+			var multiplier = [1, 12, 4.3482, 7, 24, 60, 60];
+			var lastShown = S;
+			var max = 1;
+			for (var period = S; period >= Y; period--) {
+				if (show[period]) {
+					if (periods[lastShown] >= max) {
+						periods[lastShown] = 0;
+						diff = 1;
+					}
+					if (diff > 0) {
+						periods[period]++;
+						diff = 0;
+						lastShown = period;
+						max = 1;
+					}
+				}
+				max *= multiplier[period];
+			}
+		}
+		if (significant) { // Zero out insignificant periods
+			for (var period = Y; period <= S; period++) {
+				if (significant && periods[period]) {
+					significant--;
+				}
+				else if (!significant) {
+					periods[period] = 0;
+				}
+			}
+		}
+		return periods;
+	}
+	});
+
+})(jQuery);
+
 
 // responsive dropdown
 $(function() {
@@ -113,6 +1343,13 @@ $(function() {
 }); //on load
 
 
+$(function () {
+    var endDate = new Date();
+    endDate = new Date(endDate.getFullYear() + 0, 8 - 1, 28); // year, month, day
+    $('#byMonth').countdown({until: endDate, format: 'odHMS'});
+    $('#month').text(endDate.getFullYear());
+
+});
 },{"jquery":2,"mustache":3}],2:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.3

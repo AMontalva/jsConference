@@ -76,3 +76,11 @@ $(function() {
 
 }); //on load
 
+
+$(function () {
+    var endDate = new Date();
+    endDate = new Date(endDate.getFullYear() + 0, 8 - 1, 28); // year, month, day
+    $('#byMonth').countdown({until: endDate, format: 'odHMS'});
+    $('#month').text(endDate.getFullYear());
+
+});
