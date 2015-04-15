@@ -6,7 +6,9 @@
 */
 
 #home {
-
+  h2 {
+    color: lighten($black, 87%);
+  }
 }
 
 .fullheight {
@@ -19,7 +21,7 @@
 }
 
 .home__desc {
-  padding: 200px 0;
+  padding: 140px 0;
 
   text-align: center;
   color: $white; 

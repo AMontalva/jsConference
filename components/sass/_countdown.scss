@@ -1,7 +1,17 @@
+#byMonth {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-bottom: 60px;
+}
+
+
 /* jQuery Countdown styles 2.0.0. */
 .is-countdown {
 	/*border: 1px solid #ccc;*/
 	/*background-color: #eee;*/
+	color: lighten($black, 87%);
 }
 .countdown-rtl {
 	direction: rtl;
@@ -41,6 +51,7 @@
 	float: left;
 	font-size: 75%;
 	text-align: center;
+	margin-left: 4px;
 }
 .countdown-amount {
     font-size: 200%;
@@ -51,4 +62,10 @@
 .countdown-descr {
 	display: block;
 	width: 100%;
+}
+
+@media(max-width: 320px) {
+	.countdown-section {
+		margin-left: 0;
+	}
 }

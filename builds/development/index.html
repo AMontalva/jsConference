@@ -19,24 +19,27 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <nav id="nav" class="clearfix">
-            <ul class="clearfix">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#speakers">Speakers</a></li>
-                <li><a href="#program">Program</a></li>
-                <li><a href="#sponsors">Sponsors</a></li>
-                <li><a href="#register">Register</a></li>  
-            </ul>
-            <a href="#" id="pull">Menu</a>
-        </nav>
+        <header>
+            <nav id="nav" class="clearfix">
+                <ul class="clearfix">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#speakers">Speakers</a></li>
+                    <li><a href="#program">Program</a></li>
+                    <li><a href="#sponsors">Sponsors</a></li>
+                    <li><a href="#register">Register</a></li>  
+                </ul>
+                <a href="#" id="pull">Menu</a>
+            </nav>
+        </header>
+
         
         <div id="home"><!-- HOME -->
             <div class="fullheight">
                 <div class="home__desc">
                     <div class="content">
                         <h1>JS CONFERENCE 2015</h1>
-                        <h1>San Fransisco, CA</h1>
+                        <h2>San Fransisco, CA</h2>
                         <h2>August 28-30, 2015</h2>
                         <div id="byMonth"></div>
                         <button class="btn">Register</button>
@@ -46,44 +49,51 @@
         </div><!-- HOME -->
 
         <div id="about" class="wrap"><!-- ABOUT -->
-            <h1>About</h1>
-            <h2>What is JS Conference 2015?</h2>
-            <p class="about__description_one">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, quaerat, fugit, accusantium, expedita nihil iusto temporibus obcaecati quasi ratione earum voluptatum iure optio asperiores eaque quam unde tempore rem ut. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, voluptatum, magnam repudiandae recusandae quis unde voluptate ex temporibus fugit quidem nam iste modi veritatis! Commodi odit quia doloribus illum sint.</p>
+            <div class="about__what">
+                <h1>About</h1>
+                <h2>What is JS Conference 2015?</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, quaerat, fugit, accusantium, expedita nihil iusto temporibus obcaecati quasi ratione earum voluptatum iure optio asperiores eaque quam unde tempore rem ut. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, voluptatum, magnam repudiandae recusandae quis unde voluptate ex temporibus fugit quidem nam iste modi veritatis! Commodi odit quia doloribus illum sint.</p>
+            </div>
 
-            <h2>Why Go to JS Conference?</h2>
-            <ul>
-                <li>
-                    <h3>Learn the Latest Technology</h3> 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore sit!</p>
-                </li>
-                <li>
-                    <h3>Networking</h3> 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore sit!</p>
-                </li>
-                <li>
-                    <h3>Job Opportunities</h3> 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore sit!</p>
-                </li>
-            </ul>
+            <div class="about__why">
+                <h2>Why Go to JS Conference?</h2>
+                <ul>
+                    <li>
+                        <img src="http://placehold.it/200x200">
+                        <h3>Learn the Latest Trends</h3> 
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore sit!</p>
+                    </li>
+                    <li>
+                        <img src="http://placehold.it/200x200">
+                        <h3>Networking</h3> 
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore sit!</p>
+                    </li>
+                    <li>
+                        <img src="http://placehold.it/200x200">
+                        <h3>Job Opportunities</h3> 
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore sit!</p>
+                    </li>
+                </ul>
+            </div>
         </div><!-- ABOUT -->
 
         <div id="speakers" class="wrap"><!-- SPEAKERS -->
             <h1>Speakers</h1>
             <div id="speakers_temp" class="wrap">
-                    <script id="speakerstpl" type="text/template">
-                        {{#speakers_temp}}
-                        <ul>
-                            <li>
-                                <h2>{{name}}</h2>
-                                <h3>{{reknown}}</h3>
-                                <p><img src="img/{{shortname}}_tn.jpg" alt="Photo of {{name}}" />{{bio}}</p>
-                                <a href="#"><i class="fa fa-twitter-square"></i></a>
-                                <a href="#"><i class="fa fa-linkedin-square"></i></a>
-                                <a href="#"><i class="fa fa-github-square"></i></a>
-                            </li>
-                        </ul>
-                        {{/speakers_temp}}
-                    </script>
+                <script id="speakerstpl" type="text/template">
+                    {{#speakers_temp}}
+                    <ul>
+                        <li>
+                            <h2>{{name}}</h2>
+                            <h3>{{reknown}}</h3>
+                            <p><img src="img/{{shortname}}_tn.jpg" alt="Photo of {{name}}" />{{bio}}</p>
+                            <a href="#"><i class="fa fa-twitter-square"></i></a>
+                            <a href="#"><i class="fa fa-linkedin-square"></i></a>
+                            <a href="#"><i class="fa fa-github-square"></i></a>
+                        </li>
+                    </ul>
+                    {{/speakers_temp}}
+                </script>
             </div>
         </div><!-- SPEAKERS -->
 
