@@ -15,6 +15,24 @@ a {
   text-decoration: none;
 }
 
+.border-wrapper{
+  h1 {
+    text-align: center;
+    font-size: 3em;
+    font-family: $varelaRound;
+  }
+}
+.border{
+    position: relative;
+    width: 80px;
+    height: 3px;
+    background-color: $accent;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: -30px;
+}
+
 .wrap {
   display: block;
   width: 86%;
@@ -40,7 +58,7 @@ a {
 }
 
 .btn:hover {
-  background: $accentDark;
+  background: $accentLight;
   text-decoration: none;
 }
 

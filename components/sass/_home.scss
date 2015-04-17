@@ -6,8 +6,14 @@
 */
 
 #home {
+  h1 {
+    font-size: 3em;
+    font-family: $varelaRound;
+  }
   h2 {
+    font-size: 2em;
     color: lighten($black, 87%);
+    font-family: $varelaRound;
   }
 }
 
@@ -29,6 +35,20 @@
 }
 
 @media(max-width: 320px) {
+  #home {
+    h1 {
+      font-size: 2em;
+    }
+    h2 {
+      font-size: 1.2em;
+    }
+  }
+  h1 {
+    font-size: 1em;
+  }
+  h2 {
+    font-size: 1em;
+  }
   .home__desc {
     padding: 20px 0;
   }

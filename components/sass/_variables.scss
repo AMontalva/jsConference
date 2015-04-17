@@ -1,6 +1,9 @@
 // _variables.scss
 // =================
 
+@import 'http://fonts.googleapis.com/css?family=Varela+Round';
+$varelaRound: 'Varela Round', sans-serif;
+
 $black: #000000;
 $white: #FFFFFF;
 $lightblue: #008DBC;
@@ -14,12 +17,12 @@ $blueOne: #34B1C4;
 $blueTwo: #0665A2;
 
 $primary: #00bcd4;
-$primaryLight: #84ffff;
-$primaryDark: #0097a7;
+$primaryLight: #80deea;
+$primaryDark: #00838f;
 
 $accent: #ff5722;
-$accentLight: #ffccbc;
-$accentDark: #e64a19;
+$accentLight: #ff8a65;
+$accentDark: #d84315;
 
 @font-face {
     font-family: entypo;

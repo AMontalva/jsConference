@@ -79,18 +79,23 @@
         </div><!-- ABOUT -->
 
         <div id="speakers" class="wrap"><!-- SPEAKERS -->
-            <h1>Speakers</h1>
-            <div id="speakers_temp" class="wrap">
+            <div class="border-wrapper">
+                <h1>Speakers</h1>
+                <div class="border"></div>
+            </div>
+            <div id="speakers_temp">
                 <script id="speakerstpl" type="text/template">
                     {{#speakers_temp}}
                     <ul>
                         <li>
-                            <h2>{{name}}</h2>
-                            <h3>{{reknown}}</h3>
-                            <p><img src="img/{{shortname}}_tn.jpg" alt="Photo of {{name}}" />{{bio}}</p>
-                            <a href="#"><i class="fa fa-twitter-square"></i></a>
-                            <a href="#"><i class="fa fa-linkedin-square"></i></a>
-                            <a href="#"><i class="fa fa-github-square"></i></a>
+                            <div class="speaker__item">
+                                <img src="img/{{shortname}}_tn.jpg" alt="Photo of {{name}}" />
+                                <h2>{{name}}</h2>
+                                <p>{{reknown}}</p>
+                                <a href="#"><i class="fa fa-twitter-square"></i></a>
+                                <a href="#"><i class="fa fa-linkedin-square"></i></a>
+                                <a href="#"><i class="fa fa-github-square"></i></a>
+                            </div>
                         </li>
                     </ul>
                     {{/speakers_temp}}
@@ -99,7 +104,10 @@
         </div><!-- SPEAKERS -->
 
         <div id="program" class="wrap"><!-- PROGRAM -->
-            <h1>Program</h1>
+            <div class="border-wrapper">
+                <h1>Program</h1>
+                <div class="border"></div>
+            </div>
             <table class="program__table_heading">
                 <tr>
                     <td data-label="time">Time</td>
@@ -125,7 +133,10 @@
         </div><!-- PROGRAM -->
 
         <div id="sponsors" class="wrap"><!-- SPONSORS -->
-            <h1>Sponsors</h1>
+            <div class="border-wrapper">
+                <h1>Sponsors</h1>
+                <div class="border"></div>
+            </div>
             <div id="sponsors_temp">
                 <div id="sponsor_images">
                     <script id="sponsorstpl" type="text/template">
@@ -142,7 +153,10 @@
         </div><!-- SPONSORS -->
 
         <div id="register" class="wrap"><!-- REGISTER -->
-            <h1>REGISTER</h1>
+            <div class="border-wrapper">
+                <h1>Register</h1>
+                <div class="border"></div>
+            </div>
             <form action="#">
                 <ul>
                     <li><input type="text" placeholder="First Name"></li>

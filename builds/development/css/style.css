@@ -1,3 +1,4 @@
+@import "http://fonts.googleapis.com/css?family=Varela+Round";
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -735,6 +736,23 @@ a {
   text-decoration: none;
 }
 
+.border-wrapper h1 {
+  text-align: center;
+  font-size: 3em;
+  font-family: "Varela Round", sans-serif;
+}
+
+.border {
+  position: relative;
+  width: 80px;
+  height: 3px;
+  background-color: #ff5722;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: -30px;
+}
+
 .wrap {
   display: block;
   width: 86%;
@@ -760,7 +778,7 @@ a {
 }
 
 .btn:hover {
-  background: #e64a19;
+  background: #ff8a65;
   text-decoration: none;
 }
 
@@ -810,6 +828,7 @@ nav {
   font-family: 'PT Sans', Arial, sans-serif;
   font-weight: bold;
   position: relative;
+  z-index: 9999;
 }
 
 nav ul {
@@ -1066,8 +1085,14 @@ nav a#pull {
 ===================HOME===================
 ===================HOME===================
 */
+#home h1 {
+  font-size: 3em;
+  font-family: "Varela Round", sans-serif;
+}
 #home h2 {
+  font-size: 2em;
   color: #dedede;
+  font-family: "Varela Round", sans-serif;
 }
 
 .fullheight {
@@ -1086,6 +1111,21 @@ nav a#pull {
 }
 
 @media (max-width: 320px) {
+  #home h1 {
+    font-size: 2em;
+  }
+  #home h2 {
+    font-size: 1.2em;
+  }
+
+  h1 {
+    font-size: 1em;
+  }
+
+  h2 {
+    font-size: 1em;
+  }
+
   .home__desc {
     padding: 20px 0;
   }
@@ -1097,26 +1137,10 @@ nav a#pull {
 */
 #about {
   width: 100%;
-  /*display: inline-block;*/
+  display: inline-block;
   background-color: #FFFFFF;
   padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.border-wrapper h1 {
-  text-align: center;
-  font-size: 3em;
-}
-
-.border {
-  position: relative;
-  width: 60px;
-  height: 3px;
-  background-color: #ff5722;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  margin-top: -30px;
+  padding-bottom: 30px;
 }
 
 .about__what {
@@ -1159,11 +1183,11 @@ nav a#pull {
 .about__why ul li .glyph {
   font-size: 5em;
   text-align: center;
-  color: #0097a7;
+  color: #00838f;
   line-height: 1px;
 }
 .about__why ul li h3 {
-  color: #0097a7;
+  color: #00838f;
   text-align: center;
   font-weight: bold;
 }
@@ -1212,8 +1236,16 @@ nav a#pull {
 ===================SPEAKERS===================
 */
 #speakers {
+  background-color: #00bcd4;
   clear: both;
   display: table;
+  width: 100%;
+}
+#speakers h1 {
+  color: #FFFFFF;
+}
+#speakers .border-wrapper {
+  margin-bottom: 40px;
 }
 #speakers ul {
   list-style: none;
@@ -1221,29 +1253,44 @@ nav a#pull {
 }
 #speakers ul li {
   width: 20%;
-  height: 440px;
   margin-left: 2.5%;
   margin-right: 2.5%;
-  margin-bottom: 0;
+  margin-bottom: 60px;
   margin-top: 0;
   padding: 0;
   float: left;
   font-size: .8em;
   text-align: center;
 }
-#speakers ul li img {
+
+.speaker__item {
+  background-color: #FFFFFF;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.speaker__item img {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-#speakers ul li i {
+.speaker__item h2 {
+  color: #00838f;
+  font-weight: bold;
+  margin: 0;
+}
+.speaker__item p {
+  font-size: 1.2em;
+  color: #757575;
+  margin: 0;
+}
+.speaker__item i {
   margin-top: 0;
   padding-top: 0;
   font-size: 30px;
-  color: #000000;
+  color: #ff5722;
 }
-#speakers ul li i:hover {
-  color: #008DBC;
+.speaker__item i:hover {
+  color: #ff8a65;
 }
 
 @media (max-width: 320px) {
@@ -1257,17 +1304,20 @@ nav a#pull {
   }
   #speakers ul li {
     width: 100%;
-    height: 380px;
-    /*        margin-left: 2%;
-            margin-right: 2%;*/
-    margin-bottom: 0;
-    margin-top: 0;
     padding: 0;
+    margin-bottom: 40px;
     float: left;
     font-size: .8em;
     text-align: center;
   }
   #speakers ul li img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .speaker__item {
+    width: 80%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -1422,11 +1472,13 @@ table th {
   }
 }
 #byMonth {
-  width: 70%;
+  width: 500px;
   margin-left: auto;
   margin-right: auto;
   display: block;
   margin-bottom: 60px;
+  font-size: 1.5em;
+  font-family: "Varela Round", sans-serif;
 }
 
 /* jQuery Countdown styles 2.0.0. */
@@ -1484,7 +1536,7 @@ table th {
   float: left;
   font-size: 75%;
   text-align: center;
-  margin-left: 4px;
+  /*margin-left: 4px;*/
 }
 
 .countdown-amount {
@@ -1501,6 +1553,11 @@ table th {
 }
 
 @media (max-width: 320px) {
+  #byMonth {
+    width: 70%;
+    font-size: 1em;
+  }
+
   .countdown-section {
     margin-left: 0;
   }
