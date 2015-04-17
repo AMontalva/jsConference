@@ -34,7 +34,7 @@
         </header>
 
         
-        <div id="home"><!-- HOME -->
+        <article id="home"><!-- HOME -->
             <div class="fullheight">
                 <div class="home__desc">
                     <div class="content">
@@ -46,128 +46,138 @@
                     </div>
                 </div>
             </div>
-        </div><!-- HOME -->
+        </article><!-- HOME -->
 
-        <div id="about" class="wrap"><!-- ABOUT -->
-            <div class="about__what">
-                <div class="border-wrapper">
-                    <h1>About</h1>
-                    <div class="border"></div>
+        <article id="about"><!-- ABOUT -->
+            <div class="wrap">
+                <div class="about__what">
+                    <div class="border-wrapper">
+                        <h1>About</h1>
+                        <div class="border"></div>
+                    </div>
+                    <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, quaerat, fugit, accusantium, expedita nihil iusto temporibus obcaecati quasi ratione earum voluptatum iure optio asperiores eaque quam unde tempore rem ut.</h2>
                 </div>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, quaerat, fugit, accusantium, expedita nihil iusto temporibus obcaecati quasi ratione earum voluptatum iure optio asperiores eaque quam unde tempore rem ut.</h2>
-            </div>
 
-            <div class="about__why">
-                <ul>
-                    <li>
-                        <div class="glyph" aria-hidden="true" data-icon="&#xe024;"></div>
-                        <h3>Learn the Latest Trends</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore!</p>
-                    </li>
-                    <li>
-                        <div class="glyph" aria-hidden="true" data-icon="&#xe02f;"></div>
-                        <h3>Networking</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore!</p>
-                    </li>
-                    <li>
-                        <div class="glyph" aria-hidden="true" data-icon="&#xe009;"></div>
-                        <h3>Job Opportunities</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore!</p>
-                    </li>
-                </ul>
-            </div>
-        </div><!-- ABOUT -->
-
-        <div id="speakers" class="wrap"><!-- SPEAKERS -->
-            <div class="border-wrapper">
-                <h1>Speakers</h1>
-                <div class="border"></div>
-            </div>
-            <div id="speakers_temp">
-                <script id="speakerstpl" type="text/template">
-                    {{#speakers_temp}}
+                <div class="about__why">
                     <ul>
                         <li>
-                            <div class="speaker__item">
-                                <img src="img/{{shortname}}_tn.jpg" alt="Photo of {{name}}" />
-                                <h2>{{name}}</h2>
-                                <p>{{reknown}}</p>
-                                <a href="#"><i class="fa fa-twitter-square"></i></a>
-                                <a href="#"><i class="fa fa-linkedin-square"></i></a>
-                                <a href="#"><i class="fa fa-github-square"></i></a>
-                            </div>
+                            <div class="glyph" aria-hidden="true" data-icon="&#xe024;"></div>
+                            <h3>Learn the Latest Trends</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore!</p>
+                        </li>
+                        <li>
+                            <div class="glyph" aria-hidden="true" data-icon="&#xe02f;"></div>
+                            <h3>Networking</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore!</p>
+                        </li>
+                        <li>
+                            <div class="glyph" aria-hidden="true" data-icon="&#xe009;"></div>
+                            <h3>Job Opportunities</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quae dicta esse iusto numquam. Nisi, aspernatur, vitae, maiores, inventore odit fuga assumenda iste temporibus dolor mollitia voluptates ipsam labore!</p>
                         </li>
                     </ul>
-                    {{/speakers_temp}}
-                </script>
+                </div>
             </div>
-        </div><!-- SPEAKERS -->
+        </article><!-- ABOUT -->
 
-        <div id="program" class="wrap"><!-- PROGRAM -->
-            <div class="border-wrapper">
-                <h1>Program</h1>
-                <div class="border"></div>
-            </div>
-            <table class="program__table_heading">
-                <tr>
-                    <td data-label="time">Time</td>
-                    <td data-label="title">Title</td>
-                    <td data-label="speaker">Speaker</td>
-                    <td data-label="description">Description</td>
-                </tr>
-            </table>
-            <div id="day1_temp">
-                <script id="programtpl" type="text/template">
-                    {{#day1_temp}}
-                    <table>
-                        <tr>
-                            <td data-label="time">{{time}}</td>
-                            <td data-label="title">{{title}}</td>
-                            <td data-label="speaker">{{speaker}}</td>
-                            <td data-label="description">{{description}}</td>
-                        </tr>
-                    </table>
-                    {{/day1_temp}}
-                </script>
-            </div>
-        </div><!-- PROGRAM -->
-
-        <div id="sponsors" class="wrap"><!-- SPONSORS -->
-            <div class="border-wrapper">
-                <h1>Sponsors</h1>
-                <div class="border"></div>
-            </div>
-            <div id="sponsors_temp">
-                <div id="sponsor_images">
-                    <script id="sponsorstpl" type="text/template">
-                        {{#sponsors_temp}}
+        <article id="speakers"><!-- SPEAKERS -->
+            <div class="wrap">
+                <div class="border-wrapper">
+                    <h1>Speakers</h1>
+                    <div class="border"></div>
+                </div>
+                <div id="speakers_temp">
+                    <script id="speakerstpl" type="text/template">
+                        {{#speakers_temp}}
                         <ul>
                             <li>
-                                <img src="img/{{shortname}}.jpg" alt="Photo of {{shortname}}" />
+                                <div class="speaker__item">
+                                    <img src="img/{{shortname}}_tn.jpg" alt="Photo of {{name}}" />
+                                    <h2>{{name}}</h2>
+                                    <p>{{reknown}}</p>
+                                    <a href="#"><i class="fa fa-twitter-square"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin-square"></i></a>
+                                    <a href="#"><i class="fa fa-github-square"></i></a>
+                                </div>
                             </li>
                         </ul>
-                        {{/sponsors_temp}}
+                        {{/speakers_temp}}
                     </script>
                 </div>
             </div>
-        </div><!-- SPONSORS -->
+        </article><!-- SPEAKERS -->
 
-        <div id="register" class="wrap"><!-- REGISTER -->
-            <div class="border-wrapper">
-                <h1>Register</h1>
-                <div class="border"></div>
+        <article id="program"><!-- PROGRAM -->
+            <div class="wrap">
+                <div class="border-wrapper">
+                    <h1>Program</h1>
+                    <div class="border"></div>
+                </div>
+                <table class="program__table_heading">
+                    <tr>
+                        <td data-label="time">Time</td>
+                        <td data-label="title">Title</td>
+                        <td data-label="speaker">Speaker</td>
+                        <td data-label="description">Description</td>
+                    </tr>
+                </table>
+                <div id="day1_temp">
+                    <script id="programtpl" type="text/template">
+                        {{#day1_temp}}
+                        <table>
+                            <tr>
+                                <td data-label="time">{{time}}</td>
+                                <td data-label="title">{{title}}</td>
+                                <td data-label="speaker">{{speaker}}</td>
+                                <td data-label="description">{{description}}</td>
+                            </tr>
+                        </table>
+                        {{/day1_temp}}
+                    </script>
+                </div>
             </div>
-            <form action="#">
-                <ul>
-                    <li><input type="text" placeholder="First Name"></li>
-                    <li><input type="text" placeholder="Last Name"></li>
-                    <li><input type="email" placeholder="Email"></li>
-                    <li><button class="btn">Submit</button></li>
-                </ul>
-            </form>
-        </div><!-- REGISTER -->
+        </article><!-- PROGRAM -->
 
-        <div id="footer"></div>  
+        <article id="sponsors"><!-- SPONSORS -->
+            <div class="wrap">
+                <div class="border-wrapper">
+                    <h1>Sponsors</h1>
+                    <div class="border"></div>
+                </div>
+                <div id="sponsors_temp">
+                    <div id="sponsor_images">
+                        <script id="sponsorstpl" type="text/template">
+                            {{#sponsors_temp}}
+                            <ul>
+                                <li>
+                                    <img src="img/{{shortname}}.jpg" alt="Photo of {{shortname}}" />
+                                </li>
+                            </ul>
+                            {{/sponsors_temp}}
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </article><!-- SPONSORS -->
+
+        <article id="register"><!-- REGISTER -->
+            <div class="wrap">
+                <div class="border-wrapper">
+                    <h1>Register</h1>
+                    <div class="border"></div>
+                </div>
+                <form action="#">
+                    <ul>
+                        <li><input type="text" placeholder="First Name"></li>
+                        <li><input type="text" placeholder="Last Name"></li>
+                        <li><input type="email" placeholder="Email"></li>
+                        <li><button class="btn">Submit</button></li>
+                    </ul>
+                </form>
+            </div>
+        </article><!-- REGISTER -->
+
+        <article id="footer"></article>  
 
         <script src="js/script.js"></script>
     </body>

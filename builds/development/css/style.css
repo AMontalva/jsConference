@@ -755,7 +755,7 @@ a {
 
 .wrap {
   display: block;
-  width: 86%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1144,7 +1144,6 @@ nav a#pull {
 }
 
 .about__what {
-  width: 70%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -1158,7 +1157,6 @@ nav a#pull {
 }
 
 .about__why {
-  width: 70%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1307,7 +1305,6 @@ nav a#pull {
     padding: 0;
     margin-bottom: 40px;
     float: left;
-    font-size: .8em;
     text-align: center;
   }
   #speakers ul li img {
@@ -1322,6 +1319,9 @@ nav a#pull {
     margin-left: auto;
     margin-right: auto;
   }
+  .speaker__item h2 {
+    font-size: 1.4em;
+  }
 }
 /*
 ===================PROGRAM===================
@@ -1331,6 +1331,9 @@ nav a#pull {
 #program {
   display: table;
 }
+#program .border-wrapper {
+  margin-bottom: 40px;
+}
 
 .program__table_heading td {
   font-weight: bold;
@@ -1338,7 +1341,7 @@ nav a#pull {
 }
 
 table {
-  border: 1px solid #ccc;
+  border: 1px solid #e0e0e0;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -1347,13 +1350,13 @@ table {
   table-layout: fixed;
 }
 table tr {
-  border: 1px solid #ddd;
+  border: 1px solid #e0e0e0;
   padding: 5px;
 }
 table th, table td {
   padding: 10px;
   text-align: center;
-  border: 1px solid #ddd;
+  border: 1px solid #e0e0e0;
 }
 table th {
   font-size: 14px;
@@ -1408,7 +1411,11 @@ table th {
 ===================SPONSORS===================
 */
 #sponsors {
-  display: block;
+  display: inline-block;
+  width: 100%;
+}
+#sponsors .border-wrapper {
+  margin-bottom: 40px;
 }
 #sponsors ul {
   list-style: none;
@@ -1460,6 +1467,17 @@ table th {
 */
 #register {
   display: table;
+  width: 100%;
+}
+#register input[type="text"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#register input[type="email"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 320px) {

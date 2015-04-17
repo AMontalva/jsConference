@@ -6,7 +6,11 @@
 */
 
 #sponsors {
-  display: block;
+  display: inline-block;
+  width: 100%;
+  .border-wrapper {
+    margin-bottom: 40px;
+  }
   ul {
     list-style: none;
     margin-left: -40px;

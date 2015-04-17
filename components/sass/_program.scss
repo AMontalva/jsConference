@@ -7,6 +7,9 @@
 
 #program {
   display: table;
+  .border-wrapper {
+    margin-bottom: 40px;
+  }
 }
 
 .program__table_heading {
@@ -17,7 +20,7 @@
 }
 
 table {
-  border: 1px solid #ccc;
+  border: 1px solid darken($white, 12%);
   width: 100%;
   margin:0;
   padding:0;
@@ -25,13 +28,13 @@ table {
   border-spacing: 0;
   table-layout: fixed;
   tr {
-    border: 1px solid #ddd;
+    border: 1px solid darken($white, 12%);
     padding: 5px;
   }
   th, td {
     padding: 10px;
     text-align: center;
-    border: 1px solid #ddd;
+    border: 1px solid darken($white, 12%);
   }
   th {
     font-size: 14px;
