@@ -1,0 +1,33 @@
+
+/*
+===================FOOTER===================
+===================FOOTER===================
+===================FOOTER===================
+*/
+
+#footer {
+	display: block;
+	width: 100%;
+	background-color: #333;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: $white;
+	text-align: center;
+	h2 {
+		font-size: 2em;
+	}
+	.socialmedia {
+		i {
+			color: $white;
+			font-size: 3em;
+			padding-left: 4px;
+			padding-right: 4px;
+		}
+		i:hover {
+			color: $accent;
+		}
+	}
+	p {
+		margin-top: 40px;
+	}
+}

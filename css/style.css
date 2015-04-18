@@ -1196,9 +1196,6 @@ nav a#pull {
 }
 
 @media (max-width: 320px) {
-  #about h1 {
-    font-size: 2em;
-  }
   #about h2 {
     text-align: center;
     width: 80%;
@@ -1329,7 +1326,9 @@ nav a#pull {
 ===================PROGRAM===================
 */
 #program {
-  display: table;
+  background-color: #F7F7F7;
+  display: inline-block;
+  padding-bottom: 60px;
 }
 #program .border-wrapper {
   margin-bottom: 40px;
@@ -1468,16 +1467,22 @@ table th {
 #register {
   display: table;
   width: 100%;
+  background-color: #00bcd4;
 }
-#register input[type="text"] {
+#register ul {
+  margin-left: -40px;
+}
+#register ul li input[type="text"] {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
 }
-#register input[type="email"] {
+#register ul li input[type="email"] {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 320px) {
@@ -1489,6 +1494,36 @@ table th {
     margin-top: 20px;
   }
 }
+/*
+===================FOOTER===================
+===================FOOTER===================
+===================FOOTER===================
+*/
+#footer {
+  display: block;
+  width: 100%;
+  background-color: #333;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #FFFFFF;
+  text-align: center;
+}
+#footer h2 {
+  font-size: 2em;
+}
+#footer .socialmedia i {
+  color: #FFFFFF;
+  font-size: 3em;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+#footer .socialmedia i:hover {
+  color: #ff5722;
+}
+#footer p {
+  margin-top: 40px;
+}
+
 #byMonth {
   width: 500px;
   margin-left: auto;

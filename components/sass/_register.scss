@@ -9,16 +9,25 @@
 #register {
 	display: table;
 	width: 100%;
-	input[type="text"] {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
+	background-color: $primary;
+	ul {
+		margin-left: -40px;
+		li {
+			input[type="text"] {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				margin-bottom: 20px;
+			}
+			input[type="email"] {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				margin-bottom: 20px;
+			}
+		}
 	}
-	input[type="email"] {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-	}
+
 }
 
 @media(max-width: 320px) {
