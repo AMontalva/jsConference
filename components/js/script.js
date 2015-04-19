@@ -30,6 +30,7 @@ $(function() {
 $(function() {
   var topoffset = 42;
 
+
   var isTouch = 'ontouchstart' in document.documentElement;
 
   var navheight = $("#nav").height();
@@ -84,3 +85,43 @@ $(function () {
     $('#month').text(endDate.getFullYear());
 
 });
+
+  //highlight navigation
+  $(window).scroll(function() {
+    var topoffset = 50;
+
+    var windowpos = $(window).scrollTop() + topoffset;
+    $('nav li a').removeClass('active');
+
+    if (windowpos > $('#home').offset().top) {
+      $('nav li a').removeClass('active');
+      $('a[href$="#home"]').addClass('active');
+    } //windowpos
+
+    if (windowpos > $('#about').offset().top) {
+      $('nav li a').removeClass('active');
+      $('a[href$="#about"]').addClass('active');
+    } //windowpos
+
+    if (windowpos > $('#speakers').offset().top) {
+      $('nav li a').removeClass('active');
+      $('a[href$="#speakers"]').addClass('active');
+    } //windowpos
+
+    if (windowpos > $('#program').offset().top) {
+      $('nav li a').removeClass('active');
+      $('a[href$="#program"]').addClass('active');
+    } //windowpos
+
+    if (windowpos > $('#sponsors').offset().top) {
+      $('nav li a').removeClass('active');
+      $('a[href$="#sponsors"]').addClass('active');
+    } //windowpos
+
+    if (windowpos > $('#register').offset().top) {
+      $('nav li a').removeClass('active');
+      $('a[href$="#register"]').addClass('active');
+    } //windowpos
+
+  }); //window scroll
+
