@@ -66,12 +66,12 @@
 	width: 100%;
 }
 
-@media(max-width: 320px) {
-	#byMonth {
-		width: 70%;
-		font-size: 1em;
-	}
-	.countdown-section {
-		margin-left: 0;
-	}
+@media(max-width: 600px) {
+  #byMonth {
+    width: 70%;
+    font-size: 1em;
+  }
+  .countdown-section {
+    margin-left: 0;
+  }
 }

@@ -28,7 +28,7 @@ $(function() {
 
 
 $(function() {
-  var topoffset = 42;
+  var topoffset = 39;
 
 
   var isTouch = 'ontouchstart' in document.documentElement;
@@ -88,7 +88,7 @@ $(function () {
 
   //highlight navigation
   $(window).scroll(function() {
-    var topoffset = 50;
+    var topoffset = 48;
 
     var windowpos = $(window).scrollTop() + topoffset;
     $('nav li a').removeClass('active');

@@ -19,22 +19,53 @@
 
 .fullheight {
   background: url("../img/earth2.jpg");
-  background-repeat: no-repeat;
+/*  background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
 }
 
 .home__desc {
-  padding: 140px 0;
+  padding-top: 50px;
 
   text-align: center;
   color: $white; 
 
 }
 
+@media(max-width: 600px) {
+  #home {
+    h1 {
+      font-size: 2em;
+      font-family: $varelaRound;
+    }
+    h2 {
+      font-size: 1em;
+      color: lighten($black, 87%);
+      font-family: $varelaRound;
+    }
+  }
+
+  .home__desc {
+    padding: 100px 0;
+
+    text-align: center;
+    color: $white; 
+
+  }
+}
+
+
 @media(max-width: 320px) {
+  #byMonth {
+    width: 70%;
+    font-size: 1em;
+  }
+  .countdown-section {
+    margin-left: 0;
+  }
+
   #home {
     h1 {
       font-size: 2em;
