@@ -35,30 +35,40 @@
   }
 }
 
-@media(max-width: 320px) {
+@media(max-width: 800px) {
   #sponsors {
     ul {
-      list-style: none;
-      margin-left: -40px;
       li {
-        width: 40%;
-        height: 100px;
-        margin-left: 5%;
-        margin-right: 5%;
-        margin-bottom: 0;
-        margin-top: 0;
-        padding: 0;
-        float: left;
-        text-align: center;
-
-        img {
-
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-
-        }
+        width: 21%;
+        height: 180px;
+        margin-left: 2%;
+        margin-right: 2%;
       }
     }
-  }
+  }  
+}
+
+@media(max-width: 600px) {
+  #sponsors {
+    ul {
+      li {
+        width: 29.33333333%;
+        height: 150px;
+        margin-left: 2%;
+        margin-right: 2%;
+      }
+    }
+  }  
+}
+
+@media(max-width: 480px) {
+  #sponsors {
+    ul {
+      li {
+        width: 46%;
+        margin-left: 2%;
+        margin-right: 2%;
+      }
+    }
+  }  
 }

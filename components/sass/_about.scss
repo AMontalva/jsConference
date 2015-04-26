@@ -27,12 +27,12 @@
 .about__why {
 	margin-left: auto;
 	margin-right: auto;
-	h2 {
-		color: $black;
+	h3 {
 		text-align: center;
 		margin-left: auto;
 		margin-right: auto;
 		padding-bottom: 10px;
+		font-family: $varelaRound;
 	}
 	ul {
 		margin-left: -40px;
@@ -63,14 +63,11 @@
 	}
 }
 
-@media(max-width: 320px) {
+@media(max-width: 600px) {
 	#about {
-		h1 {
-		}
 		h2 {
 			text-align: center;
 			width: 80%;
-
 		}
 		ul {
 			li {
@@ -93,8 +90,6 @@
 
 	.about__why {
 		width: 90%;
-		h2 {
-		}
 		ul {
 			li {
 				padding-bottom: 20px;

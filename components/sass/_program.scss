@@ -18,6 +18,7 @@
   td {
     font-weight: bold;
     text-transform: uppercase;
+    font-family: $varelaRound;
   }
 }
 
@@ -44,7 +45,7 @@ table {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 600px) {
   #program {
     margin: 0 auto;
     overflow: hidden;

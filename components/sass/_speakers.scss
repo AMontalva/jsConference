@@ -37,15 +37,18 @@
   background-color: $white;
   padding-top: 20px;
   padding-bottom: 20px;
+  height: 260px;
   img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 80%;
   }
   h2 {
     color: $primaryDark;
     font-weight: bold;
     margin: 0;
+    font-family: $varelaRound;
   }
   p {
     font-size: 1.2em;
@@ -63,8 +66,53 @@
   }
 }
 
+@media(max-width: 1200px) {
+  #speakers {
+    ul {
+      li {
+        width: 28%;
+        margin-left: 2.666666667%;
+        margin-right: 2.666666667%;
+      }
+    }
+  }
+  .speaker__item {
+    height: 280px;
+  }
 
-@media(max-width: 320px) {
+}
+
+@media(max-width: 800px) {
+  #speakers {
+    ul {
+      li {
+        width: 45%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+      }
+    }
+  }
+  .speaker__item {
+    height: 320px;
+  }
+
+}
+
+@media(max-width: 600px) {
+  .speaker__item {
+    height: 280px;
+  }
+
+}
+
+@media(max-width: 500px) {
+  .speaker__item {
+    height: 260px;
+  }
+
+}
+
+@media(max-width: 400px) {
   #speakers {
     clear: both;
     ul {
@@ -91,6 +139,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    min-height: 300px;
     h2 {
       font-size: 1.4em;
     }
